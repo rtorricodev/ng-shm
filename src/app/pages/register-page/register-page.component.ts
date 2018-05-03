@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss']
 })
-export class RegisterPageComponent implements OnInit {
+export class RegisterPageComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() {
+  isLoggedIn(): Observable<boolean> {
+    return this.authService.isLoggedIn();
   }
+
 
 }
