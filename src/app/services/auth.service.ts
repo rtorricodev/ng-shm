@@ -63,4 +63,12 @@ export class AuthService {
         return this.userInfo.map(userInfo => !userInfo.isAnonymous);
     }
 
+    login(email: string, password: string): Observable<string> {
+        let result = new Subject<string>();
+        this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+            .then(() => result.next("success"))
+            .catch(err => result.error(err));
+        return result.asObservable();
+    }
+
 }
