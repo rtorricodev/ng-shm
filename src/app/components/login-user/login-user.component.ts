@@ -26,16 +26,16 @@ export class LoginUserComponent {
   }
 
   login() {
-  if (this.form.valid) {
-    this.authService.login(this.email.value, this.password.value)
-    .subscribe(
-      () => {
-        this.onSuccess.emit();
-        this.form.reset();
-      },
-      (err) => this.onError.emit(err)
-    );
+    if (this.form.valid) {
+      this.authService.login(this.email.value, this.password.value)
+      .subscribe(
+        () => {
+          this.onSuccess.emit();
+          this.form.reset();
+        },
+        (err) => this.onError.emit(err)
+      );
+    }
   }
-}
 
 }
