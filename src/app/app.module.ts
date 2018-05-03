@@ -24,12 +24,16 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterPageComponent,
     RegisterUserComponent,
+    LoginUserComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
