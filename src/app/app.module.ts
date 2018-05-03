@@ -29,7 +29,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   declarations: [
     AppComponent,
     RegisterPageComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,

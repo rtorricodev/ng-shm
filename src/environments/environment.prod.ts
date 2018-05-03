@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebaseConfig : {
-    apiKey: "AIzaSyDT0wozIsgMN-xmj3c_NpKcAwnmnZPj1SM",
-    authDomain: "shm-production.firebaseapp.com",
-    databaseURL: "https://shm-production.firebaseio.com",
-    projectId: "shm-production",
-    storageBucket: "shm-production.appspot.com",
-    messagingSenderId: "361819898703"
+    apiKey: "AIzaSyCnBkK1AnE21ydNQsBxh6IIccJWdnArkLc",
+    authDomain: "shm-develop.firebaseapp.com",
+    databaseURL: "https://shm-develop.firebaseio.com",
+    projectId: "shm-develop",
+    storageBucket: "shm-develop.appspot.com",
+    messagingSenderId: "38389948904"
   }
 };
