@@ -27,6 +27,7 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     LoginUserComponent,
     HomePageComponent,
     DisplayUserComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
