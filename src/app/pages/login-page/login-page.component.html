@@ -1,0 +1,3 @@
+<div *ngIf="!(isLoggedIn|async)" class="col-md-4 col-md-offset-1">
+    <app-login-user (onSuccess)="navigateToHome()"></app-login-user>
+</div>
