@@ -12,11 +12,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //page components
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 //components
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
+import { DisplayUserComponent } from './components/display-user/display-user.component';
 
 //services
 import { AuthService } from './services/auth.service';
@@ -33,7 +34,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     RegisterPageComponent,
     RegisterUserComponent,
     LoginUserComponent,
-    LoginPageComponent,
+    HomePageComponent,
+    DisplayUserComponent,
   ],
   imports: [
     BrowserModule,
