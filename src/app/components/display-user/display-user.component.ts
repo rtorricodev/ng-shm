@@ -11,7 +11,8 @@ import {Observable} from "rxjs";
 export class DisplayUserComponent {
   @Output() onLoggedOut = new EventEmitter();
   
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+   }
 
   currentUser(): Observable<UserInfo> {
     return this.authService.currentUser();

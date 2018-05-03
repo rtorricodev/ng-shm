@@ -3,12 +3,8 @@
 </div>
 <div *ngIf="!(isLoggedIn|async)">
   <div>
-    <div *ngIf="!(isLoggedIn|async)" class="col-md-4 col-md-offset-1">
-        <app-login-user (onSuccess)="navigateToHome()"></app-login-user>
-    </div>
-
-    <button class="btn btn btn-primary" (click)="navigateToRegister($event)" >
-        Register
-    </button>
+      <div class="col-md-6">
+          <p>You need to <a (click)="navigateToLogin($event)" href="#">Log In</a> or <a (click)="navigateToRegister($event)" href="#">Register</a></p>
+      </div>
   </div>
 </div>
