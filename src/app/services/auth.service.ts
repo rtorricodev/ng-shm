@@ -1,0 +1,66 @@
+import {Injectable, Inject} from "@angular/core";
+import * as firebase from 'firebase/app';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { UserInfo } from './../models/user.info';
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+
+@Injectable()
+export class AuthService {
+
+    static UNKNOWN_USER = {
+        isAnonymous: true,
+        email: null,
+        displayName: null,
+        providerId: null,
+        uid: null
+    };
+
+    userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
+    private user: firebase.User;
+
+    constructor(private angularFireAuth: AngularFireAuth) {
+        this.angularFireAuth.authState.subscribe(user => {
+            // console.log("user: ", JSON.stringify(user));
+            this.user = user;
+            let userInfo = new UserInfo();
+            if (user != null) {
+                userInfo.isAnonymous = user.isAnonymous;
+                userInfo.email = user.email;
+                userInfo.displayName = user.displayName;
+                userInfo.providerId = user.providerId;
+                userInfo.photoURL = user.photoURL;
+                userInfo.uid = user.uid;
+            } else {
+                this.user = null;
+                userInfo.isAnonymous = true;
+            }
+            this.userInfo.next(userInfo);
+        });
+    }
+
+    createUser(email: string, password: string, displayName: string): Observable<string> {
+        let result = new Subject<string>();
+        this.angularFireAuth.authState.subscribe(user => {
+            // console.log("Update: ", user);
+            if (user != null) {
+                user.updateProfile({displayName: displayName, photoURL: null});
+            }
+        });
+        this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                //auth.auth.updateProfile({displayName: displayName, photoURL: null});
+                result.next("success");
+            })
+            .catch(err => result.error(err));
+
+        return result.asObservable();
+    }
+
+    isLoggedIn(): Observable<boolean> {
+        return this.userInfo.map(userInfo => !userInfo.isAnonymous);
+    }
+
+}
