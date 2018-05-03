@@ -6,6 +6,7 @@ import { UserInfo } from './../models/user.info';
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,7 @@ export class AuthService {
     userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
     private user: firebase.User;
 
-    constructor(private angularFireAuth: AngularFireAuth) {
+    constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
@@ -62,5 +63,30 @@ export class AuthService {
     isLoggedIn(): Observable<boolean> {
         return this.userInfo.map(userInfo => !userInfo.isAnonymous);
     }
+
+    login(email: string, password: string): Observable<string> {
+        let result = new Subject<string>();
+        this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                result.next("success");
+            })
+            .catch(err => result.error(err));
+        return result.asObservable();
+    }
+
+    currentUser(): Observable<UserInfo> {
+        return this.userInfo.asObservable();
+    }
+
+    logout(): Observable<string> {
+        let result = new Subject<string>();
+        this.userInfo.next(AuthService.UNKNOWN_USER);
+        this.angularFireAuth.auth.signOut()
+            .then(() => result.next("success"))
+            .catch(err => result.error(err));
+        return result.asObservable();
+    }
+
+
 
 }

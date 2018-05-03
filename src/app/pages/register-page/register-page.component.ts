@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import { AuthService } from './../../services/auth.service';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-register-page',
@@ -9,11 +11,11 @@ import { AuthService } from './../../services/auth.service';
 })
 export class RegisterPageComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) {
+
+  }
 
   isLoggedIn(): Observable<boolean> {
     return this.authService.isLoggedIn();
   }
-
-
 }

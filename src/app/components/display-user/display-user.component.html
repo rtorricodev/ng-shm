@@ -1,0 +1,12 @@
+<div>
+  <div class="panel panel-default">
+    <ul *ngIf="currentUser() | async as user">
+      <li >Bienveido: {{user.displayName}}</li>
+    </ul>
+  </div>
+</div>
+
+<div>
+    <a href="#" class="btn btn btn-primary" (click)="logout()">Log out</a>
+</div>
+
