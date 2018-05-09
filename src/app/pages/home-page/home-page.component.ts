@@ -21,10 +21,6 @@ export class HomePageComponent{
         .subscribe(this.isLoggedIn);
   }
 
-  navigateToLogin(e) {
-    this.router.navigate(['/login']);
-    e.preventDefault();
-  }
 
   navigateToRegister(e) {
     this.router.navigate(['/register']);

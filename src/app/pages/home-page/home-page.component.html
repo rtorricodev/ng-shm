@@ -2,9 +2,24 @@
   <app-display-user></app-display-user>
 </div>
 <div *ngIf="!(isLoggedIn|async)">
-  <div>
+
+
+  <div class="standad-bg">
+      <div class="center login-container">
+          <img src="../../../assets/images/logo-app.png" class='logo' alt="">
+          <div class="text-container">
+            <p class="standard-text">Bienvenido al SHM</p>
+          </div>
+          <app-login-user (onSuccess)="navigateToHome()"></app-login-user>
+          <div class="container">
+            <button type="submit" class="primary-button pointer" (click)="navigateToRegister($event)">Registrarse</button>
+          </div> 
+      </div>
+  </div>
+    
+  <!-- <div>
       <div class="col-md-6">
           <p>You need to <a (click)="navigateToLogin($event)" href="#">Log In</a> or <a (click)="navigateToRegister($event)" href="#">Register</a></p>
       </div>
-  </div>
+  </div> -->
 </div>
