@@ -1,45 +1,39 @@
-<h3>Register</h3>
-
 <form [formGroup]="form" role="form" (ngSubmit)="onSubmit()" novalidate>
-  <div class="form-group" [class.has-error]="name.invalid && name.touched">
-    <label for="name" class="control-label">Name</label>
-    <input [formControl]="name" required type="text" class="form-control" id="name" name="name">
-    <div class="help-block">
-        <ul class="list-unstyled">
+  <div [class.has-error]="name.invalid && name.touched">
+    <input [formControl]="name" required type="text" id="name" name="name" class="primary-input" placeholder="Nombre">
+    <!-- <div>
+        <ul>
             <li *ngIf="name.valid || name.pristine">Enter your name</li>
             <li *ngIf="name.dirty && name.hasError('required')">A name is required</li>
         </ul>
-    </div>
+    </div> -->
   </div>
 
-  <div class="form-group" [class.has-error]="email.invalid && email.touched">
-    <label for="email" class="control-label">Email</label>
-    <input [formControl]="email" required type="email" class="form-control" id="email" name="email">
-    <div class="help-block">
-        <ul class="list-unstyled">
+  <div [class.has-error]="email.invalid && email.touched">
+    <input [formControl]="email" required type="email" id="email" name="email" class="primary-input" placeholder="Correo electrónico">
+    <!-- <div>
+        <ul>
           <li *ngIf="email.valid || email.pristine">Enter your email address</li>
           <li *ngIf="email.dirty && email.hasError('required')">An email address is required</li>
           <li *ngIf="email.dirty && email.hasError('email')">Please enter a valid email address</li>
         </ul>
-    </div>
+    </div> -->
   </div>
 
-  <div class="form-group" [class.has-error]="password.invalid && password.touched">
-    <label for="password">Password</label>
-    <input [formControl]="password" type="password" required class="form-control" id="password" name="password">
-    <div class="help-block">
-        <ul class="list-unstyled">
+  <div [class.has-error]="password.invalid && password.touched">
+    <input [formControl]="password" type="password" required id="password" name="password" class="primary-input" placeholder="Contraseña">
+    <!-- <div>
+        <ul>
             <li *ngIf="password.dirty && password.valid || password.pristine">Enter your password</li>
             <li *ngIf="password.dirty && password.hasError('required')">A password is required</li>
         </ul>
-    </div>
+    </div> -->
   </div>
 
-<div class="form-group" [class.has-error]="(password2.invalid || form.hasError('mismatchedPasswords')) && password2.touched">
-  <label for="password2">Repeat Password</label>
-  <input [formControl]="password2" type="password" required class="form-control" id="password2"name="password2">
-  <div class="help-block">
-     <ul class="list-unstyled">
+<div [class.has-error]="(password2.invalid || form.hasError('mismatchedPasswords')) && password2.touched">
+  <input [formControl]="password2" type="password" id="password2"name="password2" class="primary-input" placeholder="Confirmar Contraseña">
+  <!-- <div>
+     <ul>
       <li *ngIf="(password2.valid && !form.hasError('mismatchedPasswords')) || password2.pristine">Repeat
           your
           password
@@ -50,12 +44,14 @@
           match
       </li>
     </ul>
-  </div>
-
-  <button type="submit" class="btn btn btn-primary" [disabled]="!form.valid">
-      Register
-  </button>
+  </div> -->
 </div>
+
+<div class="space"></div>
+
+<button type="submit" [disabled]="!form.valid" class="primary-button pointer">
+    Register
+</button>
 
 
 

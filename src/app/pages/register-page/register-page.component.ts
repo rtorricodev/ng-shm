@@ -15,6 +15,10 @@ export class RegisterPageComponent {
 
   }
 
+  navigateToHome(e) {
+    this.router.navigate(['/home']);
+  }
+
   isLoggedIn(): Observable<boolean> {
     return this.authService.isLoggedIn();
   }
