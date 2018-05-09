@@ -1,2 +1,16 @@
 @import './assets/styles/background.scss';
 @import './assets/styles/text.scss';
+@import './assets/styles/input.scss';
+@import './assets/styles/buttons.scss';
+
+
+
+html,body{
+
+    font-family: "Helvetica Neue";
+    
+    &:focus {
+        outline: 0; 
+     }
+     
+}

@@ -1,0 +1,21 @@
+.primary-input{
+    width: 278px;
+    height: 47px;
+    border-radius: 10px;
+    text-align: center;
+    border: solid 1px #ffffff;
+    color: white;
+    background: none;
+    margin: 1em;
+
+    &:focus {
+        outline: none;
+    }
+
+}
+
+::-webkit-input-placeholder { 
+    color: white;
+    font-size: 12px;
+    padding-left: 1em;
+}
