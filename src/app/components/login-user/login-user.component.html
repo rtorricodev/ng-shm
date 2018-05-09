@@ -9,6 +9,7 @@
               </ul> -->
           </div>
       </div>
+  
       <div [class.has-error]="password.invalid && password.touched">
           <input [formControl]="password" type="password"  class="primary-input" id="password" name="password" placeholder="Contraseña">
           <!-- <div>
@@ -18,9 +19,8 @@
               </ul>
           </div> -->
       </div>
-      <button type="submit" class="primary-button pointer">
-          Iniciar sesión
-      </button>
+      <div class="space">  </div>
+      <button type="submit" class="primary-button pointer"> Iniciar sesión</button>
     </form>
     
 
