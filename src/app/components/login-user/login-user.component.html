@@ -6,8 +6,8 @@
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
           <div>
             <p *ngIf="email.valid || email.pristine" class="information-text">Ingresa tu correo Electrónico</p>
-            <p *ngIf="email.dirty && email.hasError('required')" class="information-text">Se requiere un correo electrónico</p>
-            <p *ngIf="email.invalid && email.touched" class="information-text">No es un email valido</p>
+            <p *ngIf="email.dirty && email.hasError('required')" class="information-text">* Correo electrónico es obligatorio</p>
+            <p *ngIf="email.invalid && email.touched" class="information-text">Ingresa un correo valido</p>
 
         </div>
       </div>
