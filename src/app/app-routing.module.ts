@@ -6,6 +6,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 //crud components
 import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
+import { MedicDocumentViewComponent } from './crud components/medic-document/medic-document-view/medic-document-view.component';
 
 const routes: Routes = [
   //pages
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent },
   {path: 'home', component: HomePageComponent},
   //crud components
-  {path: 'add', component: MedicDocumentAddComponent}
+  {path: 'add', component: MedicDocumentAddComponent},
+  {path: 'view/:id', component:MedicDocumentViewComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

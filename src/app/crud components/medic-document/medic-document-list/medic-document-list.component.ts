@@ -20,4 +20,8 @@ export class MedicDocumentListComponent implements OnInit {
     this.medicDocuments = this.medicDocumentService.getMedicDocuments();
   }
 
+  delete(key: string) {
+    this.medicDocumentService.deleteComment(key);
+  }
+
 }

@@ -1,6 +1,10 @@
 <div class="form-container">
-  <label>Título</label>
+  <div>
+    <label>Título</label>
+  </div>
   <input #title='ngModel' name="title" [(ngModel)] = "medicDocument.title" type="text"
   placeholder="Título">
-  <button (click)="save()">Guardar</button>
+  <div>
+    <button (click)="save()">Guardar</button>
+  </div>
 </div>

@@ -10,7 +10,7 @@ import { MedicDocument } from './../models/medic-document';
 
 //firebase
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import * as firebaseConfig from 'firebase';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class medicDocumentService {
@@ -30,5 +30,15 @@ export class medicDocumentService {
     createMedicDocument(medicDocument: MedicDocument){
         this.itemsRef.push(medicDocument);
         this.router.navigate(['/home']);
+    }
+
+    getMedicDocument(key:string){
+        console.log(firebase.database());
+        // return firebaseConfig.database().ref().child('medicDocuments/' + key).once('value')
+        //     .then((snap) => snap.val());
+    }
+
+    deleteComment(key: string) {
+        this.itemsRef.remove(key);
     }
 }

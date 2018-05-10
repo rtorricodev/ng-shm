@@ -35,6 +35,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
+import { MedicDocumentViewComponent } from './crud components/medic-document/medic-document-view/medic-document-view.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { MedicDocumentAddComponent } from './crud components/medic-document/medi
     //crud
     MedicDocumentListComponent,
     MedicDocumentFormComponent,
-    MedicDocumentAddComponent
+    MedicDocumentAddComponent,
+    MedicDocumentViewComponent
   ],
 
   imports: [

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,UAAU,EAAE,MAAM;CACrB;;AAED,AAAA,SAAS,CAAC;EACN,QAAQ,EAAE,QAAQ;CACrB;;AAED,AAAA,MAAM,CAAA;EACF,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "standar-classes.scss"
+    ],
+    "names": [],
+    "file": "standar-classes.css"
+}
