@@ -26,4 +26,9 @@ export class medicDocumentService {
             );
         });
     }
+
+    createMedicDocument(medicDocument: MedicDocument){
+        this.itemsRef.push(medicDocument);
+        this.router.navigate(['/home']);
+    }
 }

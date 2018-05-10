@@ -21,6 +21,7 @@ import { DisplayUserComponent } from './components/display-user/display-user.com
 
 //crud components
 import { MedicDocumentListComponent } from './crud components/medic-document/medic-document-list/medic-document-list.component';
+import { MedicDocumentFormComponent } from './crud components/medic-document/medic-document-form/medic-document-form.component';
 
 //crud components services 
 import { medicDocumentService } from './services/medic.document.service';
@@ -33,6 +34,7 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     RegisterPageComponent,
     HomePageComponent,
     //crud
-    MedicDocumentListComponent
+    MedicDocumentListComponent,
+    MedicDocumentFormComponent,
+    MedicDocumentAddComponent
   ],
 
   imports: [
@@ -67,7 +71,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   ],
 
   providers: [
-    AuthService
+    AuthService,
+    medicDocumentService
   ],
   bootstrap: [AppComponent]
 })
