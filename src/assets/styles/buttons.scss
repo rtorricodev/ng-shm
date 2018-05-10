@@ -11,7 +11,13 @@
     }
 }
 
-
 .pointer {
     cursor: pointer;
+}
+
+.call-to-action {
+    right: 2em;
+    bottom: 2em;
+    cursor: pointer;
+    position: fixed;
 }

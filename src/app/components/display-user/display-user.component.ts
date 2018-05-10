@@ -8,14 +8,22 @@ import {Observable} from "rxjs";
   templateUrl: './display-user.component.html',
   styleUrls: ['./display-user.component.scss']
 })
-export class DisplayUserComponent {
+export class DisplayUserComponent implements OnInit {
+  
+
+
   @Output() onLoggedOut = new EventEmitter();
+  userInfo: Observable<UserInfo>;
   
   constructor(private authService: AuthService) {
    }
 
-  currentUser(): Observable<UserInfo> {
-    return this.authService.currentUser();
+  ngOnInit(): void {
+    this.userInfo = this.authService.currentUser();
+  }
+
+  currentUser() {
+    this.userInfo = this.authService.currentUser();
   }
 
   logout() {

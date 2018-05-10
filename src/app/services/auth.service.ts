@@ -56,7 +56,6 @@ export class AuthService {
                 result.next("success");
             })
             .catch(err => result.error(err));
-
         return result.asObservable();
     }
 
@@ -86,7 +85,4 @@ export class AuthService {
             .catch(err => result.error(err));
         return result.asObservable();
     }
-
-
-
 }

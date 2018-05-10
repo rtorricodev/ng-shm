@@ -1,12 +1,13 @@
-<div>
-  <div class="panel panel-default">
-    <ul *ngIf="currentUser() | async as user">
-      <li >Bienveido: {{user.displayName}}</li>
-    </ul>
+<div class="display-user-container">
+  <div>
+      <p *ngIf="userInfo | async as user">Bienvenido {{user.displayName}} !</p>
   </div>
-</div>
+  
+  <div>
+      <a href="#" (click)="logout()">Log out</a>
+  </div>
 
-<div>
-    <a href="#" class="btn btn btn-primary" (click)="logout()">Log out</a>
+  <app-medic-document-list></app-medic-document-list>
+  <button class="call-to-action">+</button>
 </div>
 

@@ -12,6 +12,7 @@ export class LoginUserComponent {
   form: FormGroup;
   email: AbstractControl;
   password: AbstractControl;
+  error: Boolean = false;
 
   @Output() onSuccess = new EventEmitter();
   @Output() onError = new EventEmitter();
@@ -33,7 +34,10 @@ export class LoginUserComponent {
           this.onSuccess.emit();
           this.form.reset();
         },
-        (err) => this.onError.emit(err)
+        (err) => {
+          this.error = true;
+          this.onError.emit(err)
+        }
       );
     }
   }

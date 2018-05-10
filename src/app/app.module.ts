@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,6 +19,12 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { DisplayUserComponent } from './components/display-user/display-user.component';
 
+//crud components
+import { MedicDocumentListComponent } from './crud components/medic-document/medic-document-list/medic-document-list.component';
+
+//crud components services 
+import { medicDocumentService } from './services/medic.document.service';
+
 //services
 import { AuthService } from './services/auth.service';
 
@@ -28,28 +34,41 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+
 @NgModule({
   declarations: [
+    //components
     AppComponent,
-    RegisterPageComponent,
     RegisterUserComponent,
     LoginUserComponent,
-    HomePageComponent,
     DisplayUserComponent,
+    //pagecomponents
+    RegisterPageComponent,
+    HomePageComponent,
+    //crud
+    MedicDocumentListComponent
   ],
+
   imports: [
+    //angular modules
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule,
+    //forms
     FormsModule,
     ReactiveFormsModule,
+    //bootstrap
     AlertModule.forRoot(),
     NgbModule.forRoot(),
+    //firebase
+    AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig , 'SHM web'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
-  providers: [AuthService],
+
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
