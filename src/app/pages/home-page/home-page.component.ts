@@ -22,9 +22,13 @@ export class HomePageComponent{
   }
 
 
-  navigateToRegister(e) {
+  navigateToHome(event) {
+    this.router.navigate(['/home']);
+  }
+
+  navigateToRegister(event) {
     this.router.navigate(['/register']);
-    e.preventDefault();
+    event.preventDefault();
   }
 
 }

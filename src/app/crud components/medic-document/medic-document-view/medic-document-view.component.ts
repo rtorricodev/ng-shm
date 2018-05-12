@@ -20,7 +20,7 @@ export class MedicDocumentViewComponent implements OnInit {
 
   getMedicDocument(key: string) {
     return this.medicDocumentService.getMedicDocument(key)
-      // .then(medicDocument => this.medicDocument = medicDocument);
+      .then(medicDocument => this.medicDocument = medicDocument);
   }
 
 }

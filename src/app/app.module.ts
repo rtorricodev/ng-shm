@@ -22,6 +22,9 @@ import { DisplayUserComponent } from './components/display-user/display-user.com
 //crud components
 import { MedicDocumentListComponent } from './crud components/medic-document/medic-document-list/medic-document-list.component';
 import { MedicDocumentFormComponent } from './crud components/medic-document/medic-document-form/medic-document-form.component';
+import { MedicDocumentViewComponent } from './crud components/medic-document/medic-document-view/medic-document-view.component';
+import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
+import { MedicDocumentEditComponent } from './crud components/medic-document/medic-document-edit/medic-document-edit.component';
 
 //crud components services 
 import { medicDocumentService } from './services/medic.document.service';
@@ -34,8 +37,6 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
-import { MedicDocumentViewComponent } from './crud components/medic-document/medic-document-view/medic-document-view.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MedicDocumentViewComponent } from './crud components/medic-document/med
     MedicDocumentListComponent,
     MedicDocumentFormComponent,
     MedicDocumentAddComponent,
-    MedicDocumentViewComponent
+    MedicDocumentViewComponent,
+    MedicDocumentEditComponent
   ],
 
   imports: [
@@ -67,7 +69,7 @@ import { MedicDocumentViewComponent } from './crud components/medic-document/med
     NgbModule.forRoot(),
     //firebase
     AngularFireModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig , 'SHM web'),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],

@@ -3,6 +3,7 @@
     <p>{{medicDocument.title}}</p>
   </div>
   <button [routerLink]="['/view/' + medicDocument.key]">VER</button>
+  <button [routerLink]="['/edit/' + medicDocument.key]">EDIT</button>
   <button (click)="delete(medicDocument.key)">DELETE</button>
 </div>
 
