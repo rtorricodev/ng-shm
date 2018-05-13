@@ -1,9 +1,8 @@
 <div *ngFor="let medicDocument of medicDocuments | async" class="medic-document-container">
-  <div class="medic-document">
+  <div [routerLink]="['/view/' + medicDocument.key]" class="medic-document">
     <p>{{medicDocument.title}}</p>
+    <p>{{medicDocument.date | date:"dd / MM / yyyy"}}</p>
+    <p>{{medicDocument.category}}</p>
   </div>
-  <button [routerLink]="['/view/' + medicDocument.key]">VER</button>
-  <button [routerLink]="['/edit/' + medicDocument.key]">EDIT</button>
-  <button (click)="delete(medicDocument.key)">DELETE</button>
 </div>
 

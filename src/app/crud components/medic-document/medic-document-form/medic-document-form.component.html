@@ -1,9 +1,44 @@
 <div class="form-container">
   <div>
-    <label>DAniel</label>
+    <label>Registro</label>
   </div>
-  <input #title='ngModel' name="title" [(ngModel)] = "medicDocument.title" type="text"
-  placeholder="Título">
+
+  <div>
+    <label>Título</label>
+    <div>
+      <input #title='ngModel' name="title" [(ngModel)] = "medicDocument.title" type="text"
+      placeholder="Título">
+    </div>
+  </div>
+  
+
+  <div>
+    <label>Descripción</label>
+    <div>
+      <textarea #description='ngModel' name="description" [(ngModel)] = "medicDocument.description" type="text"
+      placeholder="Descripción"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <label>Fecha:</label>
+    <div>
+        <input #date='ngModel' name="date" [(ngModel)] = "medicDocument.date" type="date">
+    </div>
+  </div>
+
+  <div>
+    <label>Categoría:</label>
+    <select #category="ngModel" [(ngModel)] = "medicDocument.category"  name="category">
+        <option value="Laboratorio">Laboratorio</option>
+        <option value="Radiografía">Radiografía</option>
+        <option value="Receta">Receta Médica</option>
+        <option value="Otro">Otro</option>
+    </select>
+  </div>
+
+
+
   <div>
     <button (click)="save()">Guardar</button>
   </div>

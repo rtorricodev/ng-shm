@@ -28,6 +28,7 @@ export class medicDocumentService {
     }
 
     createMedicDocument(medicDocument: MedicDocument){
+        console.log(medicDocument.date);
         this.itemsRef.push(medicDocument);
         this.router.navigate(['/home']);
     }
@@ -35,7 +36,6 @@ export class medicDocumentService {
     getMedicDocument(key:string){
          return firebaseConfig.database().ref().child('medicDocuments/' + key).once('value')
              .then((snap) => {
-                 console.log(snap)
                  return {key: snap.key, ... snap.val()}
              });
     }

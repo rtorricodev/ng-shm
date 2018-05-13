@@ -23,4 +23,9 @@ export class MedicDocumentViewComponent implements OnInit {
       .then(medicDocument => this.medicDocument = medicDocument);
   }
 
+  delete(key: string) {
+    this.medicDocumentService.deleteMedicDocument(key);
+  }
+
+
 }
