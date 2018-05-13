@@ -1,0 +1,39 @@
+<div>
+  <div>
+    <label>Título:</label>
+    <span>{{medicDocument?.title}}</span>
+  </div>
+
+  <div>
+    <label>Descripción:</label>
+    <span>{{medicDocument?.description}}</span>
+  </div>
+
+  <div>
+    <label>Fechas</label>
+    <span>{{medicDocument?.date | date:"dd / MM / yyyy"}}</span>
+  </div>
+
+  <div>
+    <label>Categoria:</label>
+    <span>{{medicDocument?.category}}</span>
+  </div>
+
+
+  <div>
+      <button [routerLink]="['/edit/' + medicDocument?.key]">
+        EDIT
+      </button>
+  </div>
+
+  <div>
+    <button (click)="delete(medicDocument.key)" routerLink="/home">
+      DELETE
+    </button>
+  </div>
+
+  <div>
+    <button routerLink="/home">Regresar</button>
+  </div>
+
+</div>
