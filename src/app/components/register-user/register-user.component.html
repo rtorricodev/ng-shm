@@ -1,41 +1,86 @@
 <form [formGroup]="form" role="form" (ngSubmit)="onSubmit()" novalidate>
   <div>
     <input [ngClass]="{'primary-invalid-input': name.invalid && name.touched}"
-    [formControl]="name" required type="text" id="name" name="name" class="primary-input" placeholder="Nombre">
+        [formControl]="name"
+        required type="text" 
+        id="name" name="name"
+        class="primary-input"
+        placeholder="Nombre">
     <div> 
-        <p *ngIf="name.valid || name.pristine" class="information-text">Ingresa tu nombre</p>
-        <p *ngIf="name.dirty && name.hasError('required')" class="information-text">* Nombre es obligatorio</p>
+        <p *ngIf="name.valid || name.pristine" 
+            class="information-text">
+            Ingresa tu nombre
+        </p>
+        <p *ngIf="name.dirty && name.hasError('required')" 
+            class="information-text">
+            * Nombre es obligatorio
+        </p>
     </div>
   </div>
 
   <div>
     <input [ngClass]="{'primary-invalid-input': email.invalid && email.touched}"
-    [formControl]="email" required type="email" id="email" name="email" class="primary-input" placeholder="Correo electrónico">
+        [formControl]="email"
+        required type="email"
+        id="email" name="email" 
+        class="primary-input" 
+        placeholder="Correo electrónico">
     <div>
-        <p *ngIf="email.valid || email.pristine" class="information-text">Ingresa tu correo electrónico</p>
-        <p *ngIf="email.dirty && email.hasError('required')" class="information-text">* Correo electrónico es obligatorio</p>
-        <p *ngIf="email.dirty && email.hasError('email')" class="information-text">Ingresa un correo electrónico valido</p>
+        <p *ngIf="email.valid || email.pristine"
+             class="information-text">
+             Ingresa tu correo electrónico
+        </p>
+        <p *ngIf="email.dirty && email.hasError('required')" 
+            class="information-text">
+            * Correo electrónico es obligatorio
+        </p>
+        <p *ngIf="email.dirty && email.hasError('email')" 
+            class="information-text">
+            Ingresa un correo electrónico valido
+        </p>
     </div>
   </div>
 
   <div>
     <input [ngClass]="{'primary-invalid-input': password.invalid && password.touched}"
-     [formControl]="password" type="password" required id="password" name="password" class="primary-input" placeholder="Contraseña">
+    class="primary-input"
+    [formControl]="password" 
+    type="password" 
+    id="password" 
+    name="password" 
+    placeholder="Contraseña"
+    required >
     <div>
-        <p *ngIf="password.dirty && password.valid || password.pristine" class="information-text">Ingresa tu contraseña</p>
-        <p *ngIf="password.dirty && password.hasError('required')" class="information-text">* Contraseña es obligatoria</p>
+        <p *ngIf="password.dirty && password.valid || password.pristine" 
+            class="information-text">
+            Ingresa tu contraseña
+        </p>
+        <p *ngIf="password.dirty && password.hasError('required')" 
+            class="information-text">
+            * Contraseña es obligatoria
+        </p>
     </div>
   </div>
 
 <div>
   <input [ngClass]="{'primary-invalid-input': password2.invalid || form.hasError('mismatchedPasswords') && password2.touched}"
-  [formControl]="password2" type="password" id="password2"name="password2" class="primary-input" placeholder="Confirmar Contraseña">
+     [formControl]="password2"
+     class="primary-input" 
+     type="password" 
+     id="password2"
+     name="password2" 
+     placeholder="Confirmar Contraseña">
   <div>
-      <p *ngIf="(password2.valid && !form.hasError('mismatchedPasswords')) || password2.pristine" class="information-text">
+      <p *ngIf="(password2.valid && !form.hasError('mismatchedPasswords')) || password2.pristine"
+         class="information-text">
           Repite tu contraseña
       </p>
-      <p *ngIf="password2.dirty && password2.hasError('required')" class="information-text" >A password is required</p>
-      <p *ngIf="password2.dirty && password2.valid && form.hasError('mismatchedPasswords')" class="information-text">
+      <p *ngIf="password2.dirty && password2.hasError('required')" 
+         class="information-text" >
+        A password is required
+      </p>
+      <p *ngIf="password2.dirty && password2.valid && form.hasError('mismatchedPasswords')" 
+        class="information-text">
           Las contraseñas no son iguales
       </p>
   </div>
@@ -44,7 +89,9 @@
 <div class="space"></div>
 
 <button [ngClass]="{'disabled-primary-button': name.invalid || email.invalid ||  password.invalid ||  password2.invalid}"
-type="submit" [disabled]="!form.valid" class="primary-button pointer">
+    class="primary-button pointer"
+    type="submit"
+    [disabled]="!form.valid">
     Registrarse
 </button>
 

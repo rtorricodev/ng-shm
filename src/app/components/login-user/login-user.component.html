@@ -2,22 +2,43 @@
   <form [formGroup]="form" role="form" (ngSubmit)="login()" novalidate>
     <div>
         <input [formControl]="email" required type="text" id="email" name="email"
-        [ngClass]="{'primary-invalid-input': email.invalid && email.touched}" placeholder="Correo electrónico" class="primary-input"
+        [ngClass]="{'primary-invalid-input': email.invalid && email.touched}" 
+        placeholder="Correo electrónico" 
+        class="primary-input"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         <div>
-          <p *ngIf="email.valid || email.pristine" class="information-text">Ingresa tu correo Electrónico</p>
-          <p *ngIf="email.dirty && email.hasError('required')" class="information-text">* Correo electrónico es obligatorio</p>
-          <p *ngIf="email.invalid && email.touched" class="information-text">Ingresa un correo valido</p>
-
-      </div>
+          <p *ngIf="email.valid || email.pristine" 
+            class="information-text">
+            Ingresa tu correo Electrónico
+          </p>
+          <p  *ngIf="email.dirty && email.hasError('required')" 
+            class="information-text">
+              * Correo electrónico es obligatorio
+          </p>
+          <p *ngIf="email.invalid && email.touched" 
+            class="information-text">
+            Ingresa un correo valido
+          </p>
+         </div>
     </div>
 
     <div>
-        <input [formControl]="password" type="password"  class="primary-input" id="password" name="password"
-        [ngClass]="{'primary-invalid-input': password.invalid && password.touched}" placeholder="Contraseña">
+        <input [formControl]="password"
+         type="password"  
+         class="primary-input" 
+         id="password" n
+         ame="password"
+        [ngClass]="{'primary-invalid-input': password.invalid && password.touched}"
+         placeholder="Contraseña">
         <div>
-          <p *ngIf="password.valid || password.pristine" class="information-text">Ingresa tu contraseña</p>
-          <p *ngIf="password.dirty && password.hasError('required')" class="information-text">Se requiere una contraseña</p>
+          <p *ngIf="password.valid || password.pristine" 
+           class="information-text">
+           Ingresa tu contraseña
+          </p>
+          <p *ngIf="password.dirty && password.hasError('required')"
+             class="information-text">
+             Se requiere una contraseña
+          </p>
         </div>
     </div>
     <div class="space"> </div>

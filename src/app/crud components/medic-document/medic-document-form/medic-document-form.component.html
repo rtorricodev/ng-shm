@@ -6,16 +6,35 @@
   <div>
     <label>Título</label>
     <div>
-      <input #title='ngModel' name="title" [(ngModel)] = "medicDocument.title" type="text"
-      placeholder="Título">
+      <input [(ngModel)] = "medicDocument.title"
+      [ngClass]="{'primary-invalid-input': title.invalid && title.touched}" 
+      #title='ngModel'
+      class="primary-input2"
+      name="title" 
+      type="text"
+      placeholder="Título"
+      required>
     </div>
+
+    <p *ngIf="title.valid || title.pristine" >
+      Ingresa título
+    </p>
+
+    <p  *ngIf=" title.hasError('required')" >
+        * Título es un campo obligatorio
+    </p>
+
   </div>
   
 
   <div>
     <label>Descripción</label>
     <div>
-      <textarea #description='ngModel' name="description" [(ngModel)] = "medicDocument.description" type="text"
+      <textarea [(ngModel)] = "medicDocument.description" 
+      maxlength="300" 
+      #description='ngModel' 
+      name="description" 
+      type="text"
       placeholder="Descripción"></textarea>
     </div>
   </div>
@@ -23,23 +42,33 @@
   <div>
     <label>Fecha:</label>
     <div>
-        <input #date='ngModel' name="date" [(ngModel)] = "medicDocument.date" type="date">
+        <input [(ngModel)] = "medicDocument.date" type="date"
+        #date='ngModel'
+         name="date" >
     </div>
   </div>
 
   <div>
     <label>Categoría:</label>
-    <select #category="ngModel" [(ngModel)] = "medicDocument.category"  name="category">
+    <select [(ngModel)] = "medicDocument.category" 
+      #category="ngModel"
+      name="category"
+      required>
         <option value="Laboratorio">Laboratorio</option>
         <option value="Radiografía">Radiografía</option>
         <option value="Receta">Receta Médica</option>
         <option value="Otro">Otro</option>
     </select>
+
+      <p  *ngIf="category.hasError('required')" >
+          *  Categoría es un campo obligatorio
+      </p>
+  
   </div>
 
 
 
   <div>
-    <button (click)="save()">Guardar</button>
+    <button [disabled]="title.invalid || category.invalid" (click)="save()">Guardar</button>
   </div>
 </div>

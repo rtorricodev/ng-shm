@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { MedicDocument } from './../../../models/medic-document';
 
 
+
 @Component({
   selector: 'app-medic-document-form',
   templateUrl: './medic-document-form.component.html',
