@@ -34,7 +34,10 @@ export class medicDocumentService {
 
     getMedicDocument(key:string){
          return firebaseConfig.database().ref().child('medicDocuments/' + key).once('value')
-             .then((snap) => snap.val());
+             .then((snap) => {
+                 console.log(snap)
+                 return {key: snap.key, ... snap.val()}
+             });
     }
 
     deleteMedicDocument(key: string) {

@@ -1,7 +1,12 @@
 <div>
   <label>title:</label>
   <span>{{medicDocument?.title}}</span>
+  <div>
+    <label>key:</label>
+    <p>{{medicDocument?.key}}</p>
+  </div>
 
+  <button (click)="delete(medicDocument.key)" routerLink="/home">DELETE</button>
   <div>
     <button routerLink="/home">Regresar</button>
   </div>
