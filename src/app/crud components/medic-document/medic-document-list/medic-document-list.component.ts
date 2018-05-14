@@ -17,7 +17,15 @@ export class MedicDocumentListComponent implements OnInit {
   constructor(private medicDocumentService: medicDocumentService) { }
 
   ngOnInit() {
+    this.getAllElements();
+  }
+
+  getAllElements() {
     this.medicDocuments = this.medicDocumentService.getMedicDocuments();
+  }
+
+  filterBy(category: string) {
+    this.medicDocuments = this.medicDocumentService.getMedicDocumentsFilterBy(category);
   }
 
   delete(key: string) {

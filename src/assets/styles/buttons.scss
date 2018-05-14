@@ -37,3 +37,17 @@
     color: white;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.16);
 }
+
+.secondary-button {
+    border: none;
+    border-radius: 10px;
+
+    height: 2em;
+    color: white;
+    cursor: pointer;
+    background: #0085F6;
+
+    &:focus {
+        outline: none;
+    }
+}

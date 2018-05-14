@@ -31,6 +31,15 @@ export class medicDocumentService {
         return Observable.of(medicDocuments);
     }
 
+    getMedicDocumentsFilterBy(requiredCategory: string): Observable<any[]> {
+        let medicDocuments =[];
+        const ref = firebaseConfig.database().ref('medicDocuments');
+        ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
+            medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+        });
+        return Observable.of(medicDocuments);
+    }
+
     createMedicDocument(medicDocument: MedicDocument){
         this.autenticationFire.authState.subscribe(user =>{
             medicDocument.uid = user.uid;
