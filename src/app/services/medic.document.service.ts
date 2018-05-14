@@ -1,3 +1,4 @@
+
 //angular modules
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,25 +12,31 @@ import { MedicDocument } from './../models/medic-document';
 //firebase
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebaseConfig from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { EAFNOSUPPORT } from 'constants';
 
 @Injectable()
 export class medicDocumentService {
     itemsRef: AngularFireList<any>;
 
-    constructor(private db: AngularFireDatabase, private router: Router){
+    constructor(private db: AngularFireDatabase, private router: Router,private  autenticationFire: AngularFireAuth){
         this.itemsRef = this.db.list('medicDocuments');
     }
     
     getMedicDocuments(): Observable<any[]> {
-        return this.itemsRef.snapshotChanges().map(value => { 
-            return value.map(val => ({key: val.payload.key, ... val.payload.val()})
-            );
+        let medicDocuments =[];
+        const ref = firebaseConfig.database().ref('medicDocuments');
+        ref.orderByChild("uid").equalTo(this.autenticationFire.auth.currentUser.uid).on("child_added", function(snapshot) {
+            medicDocuments.push({key: snapshot.key, ... snapshot.val()})
         });
+        return Observable.of(medicDocuments);
     }
 
     createMedicDocument(medicDocument: MedicDocument){
-        console.log(medicDocument.date);
-        this.itemsRef.push(medicDocument);
+        this.autenticationFire.authState.subscribe(user =>{
+            medicDocument.uid = user.uid;
+            this.itemsRef.push(medicDocument)}
+        );
         this.router.navigate(['/home']);
     }
 

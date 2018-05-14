@@ -19,15 +19,14 @@
     <span>{{medicDocument?.category}}</span>
   </div>
 
-
   <div>
-      <button [routerLink]="['/edit/' + medicDocument?.key]">
+      <button (click)="edit()">
         EDIT
       </button>
   </div>
 
   <div>
-    <button (click)="delete(medicDocument?.key)" routerLink="/home">
+    <button (click)="delete()" routerLink="/home">
       DELETE
     </button>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { medicDocumentService } from './../../../services/medic.document.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MedicDocument } from './../../../models/medic-document';
 
 @Component({
@@ -12,7 +12,8 @@ export class MedicDocumentViewComponent implements OnInit {
 
   medicDocument: MedicDocument = null;
 
-  constructor(private route: ActivatedRoute, private medicDocumentService: medicDocumentService) { }
+  constructor(private route: ActivatedRoute, private medicDocumentService: medicDocumentService,
+  private router: Router) { }
 
   ngOnInit() {
     this.getMedicDocument(this.route.snapshot.params['id']);
@@ -23,8 +24,12 @@ export class MedicDocumentViewComponent implements OnInit {
       .then(medicDocument => this.medicDocument = medicDocument);
   }
 
-  delete(key: string) {
-    this.medicDocumentService.deleteMedicDocument(key);
+  delete() {
+    this.medicDocumentService.deleteMedicDocument(this.route.snapshot.params['id']);
+  }
+
+  edit() {
+    this.router.navigate(['/edit/' + this.route.snapshot.params['id']]);
   }
 
 
