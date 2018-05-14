@@ -1,11 +1,24 @@
 <div class="display-user-container">
-  <div>
-      <p *ngIf="userInfo | async as user"> {{user.email}} !</p>
-  </div>
+    <div class="header">
+        <div class=navbar>
+            <div (click)="logout()" class="logout-container">
+                <span class="icon-log-out"></span>
+            </div>
+        </div>
+        <div class="profile-background">
+            <div class="name-container">
+                <p *ngIf="userInfo | async as user" 
+                    class="standard-text "> 
+                    {{user.email}} 
+                </p>
+            </div>
+            <div class="photo-container">
+    
+            </div>
+        </div>
+    </div>
+        
   
-  <div>
-      <a href="#" (click)="logout()">Log out</a>
-  </div>
 
   <app-medic-document-list></app-medic-document-list>
   <button routerLink="/add" class="call-to-action">+</button>

@@ -1,12 +1,51 @@
 .medic-document-container {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.space {
+    width: 100%;
+    height: 4em;
 }
 
 .medic-document {
-    width: 50%;
-    padding-bottom: 2em;
+    margin: 3em;
+    width: 320px;
+    height: 7em;
     margin: 1em;
-    display: inline-block;
+    position: relative;
     cursor: pointer;
-    background-color: rebeccapurple;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.title{
+    top: 1em;
+    left: 1em;
+    width: 70px;
+    height: 1em;
+    font-weight: 600px;
+    position: absolute;
+}
+
+.date {
+    bottom: 0.5em;
+    left: 1em;
+    width: 120px;
+    height: 1em;
+    font-size: 14px;
+    position: absolute;
+}
+
+.category {
+    top: 1em;
+    right: 1em;
+    width: 100px;
+    font-size: 13px;
+    border-radius: 8px;
+    height: 1.5em;
+    color: white;
+    position: absolute;
+    background-color: #0a88f1;
 }

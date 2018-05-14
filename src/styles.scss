@@ -3,10 +3,18 @@
 @import './assets/styles/input.scss';
 @import './assets/styles/buttons.scss';
 @import './assets/styles/standar-classes.scss';
+@import './assets/styles/icons.scss';
 
 
 
 html,body{
+
+    margin: 0;
+
+    & *{
+        box-sizing: border-box;
+    }
+
 
     font-family: "Helvetica Neue";
     

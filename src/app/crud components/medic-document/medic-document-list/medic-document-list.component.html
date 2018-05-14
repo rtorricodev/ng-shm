@@ -1,8 +1,13 @@
-<div *ngFor="let medicDocument of medicDocuments | async" class="medic-document-container">
-  <div [routerLink]="['/view/' + medicDocument.key]" class="medic-document">
-    <p>{{medicDocument.title}}</p>
-    <p>{{medicDocument.date | date:"dd / MM / yyyy"}}</p>
-    <p>{{medicDocument.category}}</p>
+<div  class="medic-document-container">
+  <div class="space">
+
+  </div>
+  <div *ngFor="let medicDocument of medicDocuments | async">
+    <div [routerLink]="['/view/' + medicDocument.key]" class="medic-document">
+      <p class="normal-text title">{{medicDocument.title}}</p>
+      <p class="normal-text date">{{medicDocument.date | date:"dd / MM / yyyy"}}</p>
+      <p class="normal-text category">#{{medicDocument.category}}</p>
+    </div>
   </div>
 </div>
 

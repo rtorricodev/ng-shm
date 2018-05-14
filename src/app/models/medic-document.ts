@@ -3,7 +3,7 @@ export class MedicDocument {
     description: string;
     date: any;
     category: string;
-
+ 
     constructor() {
         this.title = "";
         this.description = "";

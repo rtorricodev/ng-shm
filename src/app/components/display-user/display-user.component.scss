@@ -1,3 +1,53 @@
+.header {
+    width: 100vw;
+    height: 194px;
+}
+
+.navbar{
+    width: 110%;
+    height: 3em;
+    z-index: 1;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.logout-container {
+    width: 30px;
+    height: 30px;
+    top: 0.8em;
+    left: 2em;
+    position: absolute;
+}
+
+.profile-background{
+    width: 110%;
+    height: 194px;
+    top: 0;
+    position: absolute;
+    background-image: linear-gradient(to bottom, #06c8f2, #0a88f1);
+}
+
 .display-user-container {
     text-align: center;
+}
+
+.name-container{
+    width: 50%;
+    height: 2em;
+    margin-top: 5em;
+    left: 21.7%;
+    position: absolute;
+    display: inline-block;
+}
+
+.photo-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    left: 42.5%;
+    bottom: -30%;
+    background-image: url("../../../assets/images/basic-profile-picture.png");
+    background-size: 100% 90%;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
 }
