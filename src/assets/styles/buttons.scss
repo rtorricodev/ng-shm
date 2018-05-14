@@ -41,11 +41,16 @@
 .secondary-button {
     border: none;
     border-radius: 10px;
+    font-size: 14px;
 
     height: 2em;
     color: white;
     cursor: pointer;
     background: #0085F6;
+
+    @media(max-width:600px){
+        font-size: 10px;
+    }
 
     &:focus {
         outline: none;

@@ -11,22 +11,33 @@
 
 .medic-document {
     margin: 3em;
-    width: 320px;
+    width: 600px;
     height: 7em;
     margin: 1em;
     position: relative;
     cursor: pointer;
     border-radius: 15px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    @media (max-width:900px) {
+        width: 320px; 
+    }
 }
 
 .title{
     top: 1em;
-    left: 1em;
-    width: 70px;
-    height: 1em;
+    left: 2em;
+    width: 400px;
+    height: 3.5em;
     font-weight: 600px;
     position: absolute;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+
+    @media (max-width:900px) {
+        width: 180px;
+    }
 }
 
 .date {
@@ -51,9 +62,17 @@
 }
 
 .filterContainer {
-    width: 500px;
+    width: 400px;
     height: 2em;
     bottom: 2em;
     left: 2em;
     position: fixed;
+
+    @media(max-width:600px){
+        width: 320px;
+        left: 1em;
+        bottom: 1.5em;
+    }
+
 }
+

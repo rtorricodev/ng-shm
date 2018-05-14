@@ -1,7 +1,5 @@
 <div  class="medic-document-container">
-  <div class="space">
-
-  </div>
+  <div class="space"></div>
   <div *ngFor="let medicDocument of medicDocuments | async">
     <div [routerLink]="['/view/' + medicDocument.key]" class="medic-document">
       <p class="normal-text title">{{medicDocument.title}}</p>
@@ -10,6 +8,7 @@
     </div>
   </div>
 </div>
+<div class="space"></div>
 
 
 <div class="filterContainer">
