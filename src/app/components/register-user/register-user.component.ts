@@ -16,6 +16,7 @@ export class RegisterUserComponent {
   name: AbstractControl;
   password: AbstractControl;
   password2: AbstractControl;
+  error: boolean = false;
  
   @Output() onSuccess = new EventEmitter();
   @Output() onError = new EventEmitter();
@@ -49,7 +50,10 @@ export class RegisterUserComponent {
                 this.onSuccess.emit("success");
                 this.form.reset();
             },
-            err => this.onError.emit(err)
+            err => {
+              this.error = true;
+              this.onError.emit(err)
+            }
         );
     }
   }

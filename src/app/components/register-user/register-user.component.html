@@ -94,6 +94,8 @@
 
 <div class="space"></div>
 
+<p *ngIf="error" class="information-text">Este usuario ya fue registrado</p>
+
 <button [ngClass]="{'disabled-primary-button': name.invalid || email.invalid ||  password.invalid ||  password2.invalid}"
     class="primary-button pointer"
     type="submit"

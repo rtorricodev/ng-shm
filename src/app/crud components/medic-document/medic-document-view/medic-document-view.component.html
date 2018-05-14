@@ -1,38 +1,48 @@
-<div>
+<div class="view-container">
+  <div class="nav"></div>
+
+  <div class="space"></div>
+
+      
   <div>
-    <label>Título:</label>
-    <span>{{medicDocument?.title}}</span>
+    <span class="normal-text title">{{medicDocument?.title}}</span>
   </div>
 
   <div>
-    <label>Descripción:</label>
-    <span>{{medicDocument?.description}}</span>
+      <label class="label">Fechas</label>
+      <span class="normal-text">{{medicDocument?.date | date:"dd / MM / yyyy"}}</span>
   </div>
 
   <div>
-    <label>Fechas</label>
-    <span>{{medicDocument?.date | date:"dd / MM / yyyy"}}</span>
+    <label class="label">Descripción:</label>
+    <span class="normal-text">{{medicDocument?.description}}</span>
+  </div>
+
+
+
+  <div>
+    <label class="label">Categoria:</label>
+    <span class="normal-text">{{medicDocument?.category}}</span>
   </div>
 
   <div>
-    <label>Categoria:</label>
-    <span>{{medicDocument?.category}}</span>
-  </div>
-
-  <div>
-      <button (click)="edit()">
-        EDIT
+      <button (click)="edit()"
+      class="save-button">
+        Editar
       </button>
   </div>
 
   <div>
-    <button (click)="delete()" routerLink="/home">
-      DELETE
+    <button (click)="delete()" routerLink="/home"
+      class="save-button">
+      Eliminar
     </button>
   </div>
 
   <div>
-    <button routerLink="/home">Regresar</button>
+    <button routerLink="/home"
+      class="save-button"> Home
+    </button>
   </div>
 
 </div>

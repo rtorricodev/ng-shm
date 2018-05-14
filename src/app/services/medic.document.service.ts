@@ -33,10 +33,12 @@ export class medicDocumentService {
 
     getMedicDocumentsFilterBy(requiredCategory: string): Observable<any[]> {
         let medicDocuments =[];
-        const ref = firebaseConfig.database().ref('medicDocuments');
-        ref.orderByChild("uid").equalTo(this.autenticationFire.auth.currentUser.uid).on("child_added", function(snapshot) {
-            ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
-                medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+        let uid = this.autenticationFire.authState.subscribe(user =>{ 
+            const ref = firebaseConfig.database().ref('medicDocuments'); 
+                ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
+                    if(user.uid === snapshot.val().uid){
+                        medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+                    }
             });
         });
         return Observable.of(medicDocuments);
@@ -51,10 +53,10 @@ export class medicDocumentService {
     }
 
     getMedicDocument(key:string){
-         return firebaseConfig.database().ref().child('medicDocuments/' + key).once('value')
-             .then((snap) => {
-                 return {key: snap.key, ... snap.val()}
-             });
+        return firebaseConfig.database().ref().child('medicDocuments/' + key).once('value')
+            .then((snap) => {
+                return {key: snap.key, ... snap.val()}
+            });
     }
 
     deleteMedicDocument(key: string) {
