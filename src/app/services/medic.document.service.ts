@@ -13,7 +13,6 @@ import { MedicDocument } from './../models/medic-document';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebaseConfig from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { EAFNOSUPPORT } from 'constants';
 
 @Injectable()
 export class medicDocumentService {
