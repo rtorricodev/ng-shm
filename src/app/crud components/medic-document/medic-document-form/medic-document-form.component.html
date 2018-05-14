@@ -9,6 +9,7 @@
   <div class="space"></div>
 
   <div>
+    <label class="label">Título</label>
     <div>
       <input [(ngModel)] = "medicDocument.title"
       [ngClass]="{'primary-invalid-input': title.invalid && title.touched}" 
@@ -16,6 +17,7 @@
       class="form-title"
       name="title" 
       type="text"
+      maxlength="50" 
       placeholder="Título"
       required>
     </div>
@@ -29,6 +31,7 @@
   
 
   <div>
+    <label class="label">Descripción</label>
     <div>
       <textarea [(ngModel)] = "medicDocument.description" 
       maxlength="300" 

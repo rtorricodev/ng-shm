@@ -34,8 +34,10 @@ export class medicDocumentService {
     getMedicDocumentsFilterBy(requiredCategory: string): Observable<any[]> {
         let medicDocuments =[];
         const ref = firebaseConfig.database().ref('medicDocuments');
-        ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
-            medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+        ref.orderByChild("uid").equalTo(this.autenticationFire.auth.currentUser.uid).on("child_added", function(snapshot) {
+            ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
+                medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+            });
         });
         return Observable.of(medicDocuments);
     }

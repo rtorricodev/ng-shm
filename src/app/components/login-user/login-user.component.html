@@ -41,6 +41,9 @@
           </p>
         </div>
     </div>
+
+    <p *ngIf="error"  class="information-text" >Correo electrónico o contraseña no valido</p>
+
     <div class="space"> </div>
     <button type="submit" [ngClass]="{'disabled-primary-button': email.invalid || password.invalid }" [disabled]="email.invalid" class="primary-button pointer"> Iniciar sesión</button>
   </form>
