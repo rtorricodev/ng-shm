@@ -56,3 +56,25 @@
         outline: none;
     }
 }
+
+.save-button{
+    color: white;
+    font-size: 12px;
+    width: 164px;
+    height: 39px;
+    border-radius: 10px;
+    background-color: #017be0;
+    cursor: pointer;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+.disabled-sve-button {
+    background: #5A7D8C;
+    color: white;
+    cursor: not-allowed !important;
+}

@@ -12,20 +12,18 @@
     &:focus {
         outline: none;
     }
+
 }
 
-
-
-.primary-input2 {
-    width: 278px;
-    height: 47px;
-    border-radius: 10px;
-    margin: 1em;
+.form-title{
+    width: 300px;
+    height: 32px;
+    border-radius: 15px;
     font-size: 14px;
+    background-color: #ffffff;
+    color: #017be0;
+    border: solid 1px #017be0;
     text-align: center;
-    border: solid 1px #211b2e;
-    color: rgb(71, 60, 60);
-    background: none;
 
     &:focus {
         outline: none;
@@ -41,4 +39,34 @@
     color: white;
     font-size: 12px;
     padding-left: 1em;
+}
+
+.area-form{
+    margin-top: 1em;
+    width: 300px;
+    height: 111.4px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    text-align: center;
+    font-size:12px;
+    color: #707070;
+    border: solid 1px #017be0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.date-input{
+    width: 150px;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    background-color: #ffffff;
+    border: solid 1px #017be0;
+    color: #707070;
+    font-size: 12px;
+    &:focus {
+        outline: none;
+    }
 }

@@ -1,27 +1,27 @@
+<div class="nav">
+
+</div>
+
 <div class="form-container">
   <div>
-    <label>Registro</label>
+    <label class="form-tex">Nuevo docuemento médico</label>
   </div>
+  <div class="space"></div>
 
   <div>
-    <label>Título</label>
     <div>
       <input [(ngModel)] = "medicDocument.title"
       [ngClass]="{'primary-invalid-input': title.invalid && title.touched}" 
       #title='ngModel'
-      class="primary-input2"
+      class="form-title"
       name="title" 
       type="text"
       placeholder="Título"
-      required
-      >
+      required>
     </div>
 
-    <p *ngIf="title.valid || title.pristine" >
-      Ingresa título
-    </p>
-
-    <p  *ngIf=" title.hasError('required')" >
+    <p  *ngIf=" title.hasError('required')"
+      class="information-text--blue" >
         * Título es un campo obligatorio
     </p>
 
@@ -29,47 +29,52 @@
   
 
   <div>
-    <label>Descripción</label>
     <div>
       <textarea [(ngModel)] = "medicDocument.description" 
       maxlength="300" 
       #description='ngModel' 
       name="description" 
       type="text"
-      placeholder="Descripción"></textarea>
+      placeholder="Descripción"
+      class="area-form"
+      ></textarea>
     </div>
   </div>
 
-  <div>
-    <label>Fecha:</label>
-    <div>
-        <input [(ngModel)] = "medicDocument.date" type="date"
-        #date='ngModel'
-         name="date" >
-    </div>
+  <div class="date-container">
+    <label class="label">Fecha:</label>
+    <input [(ngModel)] = "medicDocument.date" type="date"
+      #date='ngModel'
+      name="date" 
+      class="date-input">
   </div>
 
-  <div>
-    <label>Categoría:</label>
+  <div class="category-container">
+    <label class="label">Categoría:</label>
     <select [(ngModel)] = "medicDocument.category" 
       #category="ngModel"
       name="category"
-      required>
+      required
+      class="date-input">
         <option value="Laboratorio">Laboratorio</option>
         <option value="Radiografía">Radiografía</option>
         <option value="Receta">Receta Médica</option>
         <option value="Otro">Otro</option>
     </select>
 
-      <p  *ngIf="category.hasError('required')" >
+      <p  *ngIf="category.hasError('required')"
+      class="information-text--blue"  >
           *  Categoría es un campo obligatorio
       </p>
   
   </div>
 
+  <div class="space"></div>
 
 
   <div>
-    <button [disabled]="title.invalid || category.invalid" (click)="save()">Guardar</button>
+    <button  [ngClass]="{'disabled-sve-button ': title.invalid || category.invalid}"
+    [disabled]="title.invalid || category.invalid" (click)="save()"
+    class="save-button">Guardar docuemento</button>
   </div>
 </div>
