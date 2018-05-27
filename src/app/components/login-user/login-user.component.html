@@ -26,9 +26,9 @@
         <input [formControl]="password"
          type="password"  
          class="primary-input" 
-         id="password" n
-         ame="password"
-        [ngClass]="{'primary-invalid-input': password.invalid && password.touched}"
+         id="password"
+         name="password"
+         [ngClass]="{'primary-invalid-input': password.invalid && password.touched}"
          placeholder="Contraseña">
         <div>
           <p *ngIf="password.valid || password.pristine" 
@@ -43,6 +43,17 @@
     </div>
 
     <p *ngIf="error"  class="information-text" >Correo electrónico o contraseña no valido</p>
+
+    <div>
+        
+        <a href="#" (click)="loginVia($event, 'google')"class="information-text" >
+          <span class="icon-google"></span>
+          Iniciar sesión con 
+          <strong>
+            Google
+          </strong>
+        </a>
+    </div>
 
     <div class="space"> </div>
     <button type="submit" [ngClass]="{'disabled-primary-button': email.invalid || password.invalid }" [disabled]="email.invalid" class="primary-button pointer"> Iniciar sesión</button>

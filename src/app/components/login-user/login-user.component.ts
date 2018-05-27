@@ -1,6 +1,6 @@
-import { Component,EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
-import {FormBuilder, Validators, AbstractControl, FormGroup} from "@angular/forms";
+import {FormBuilder, Validators, AbstractControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login-user',
@@ -14,7 +14,9 @@ export class LoginUserComponent {
   password: AbstractControl;
   error: Boolean = false;
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onSuccess = new EventEmitter();
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onError = new EventEmitter();
 
   constructor(private authService: AuthService, private fb: FormBuilder) {
@@ -23,7 +25,7 @@ export class LoginUserComponent {
       'password': ['', Validators.required]
     });
     this.email = this.form.controls['email'];
-    this.password = this.form.controls['password'];  
+    this.password = this.form.controls['password'];
   }
 
   login() {
@@ -36,10 +38,18 @@ export class LoginUserComponent {
         },
         (err) => {
           this.error = true;
-          this.onError.emit(err)
+          this.onError.emit(err);
         }
       );
     }
+  }
+
+  loginVia($event, provider: string) {
+    $event.preventDefault();
+    this.authService.loginViaProvider(provider).subscribe(
+        () => this.onSuccess.emit(),
+        err => this.onError.emit(err)
+    );
   }
 
 }
