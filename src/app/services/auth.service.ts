@@ -1,10 +1,8 @@
 // angular
-
 import {Injectable, Inject} from '@angular/core';
 import { Router } from '@angular/router';
 
 // models
-
 import { UserInfo } from './../models/user.info';
 
 // firebase
@@ -12,14 +10,10 @@ import * as firebase from 'firebase/app';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
-
-
 // rxjs
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
-
 @Injectable()
 export class AuthService {
 

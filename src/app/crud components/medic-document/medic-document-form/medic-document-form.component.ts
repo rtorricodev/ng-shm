@@ -25,7 +25,7 @@ export class MedicDocumentFormComponent implements OnInit {
 
   constructor(private upSvc: medicDocumentService) {
     this.onSubmit = new EventEmitter<any>();
-   }
+  }
 
   ngOnInit() {
     if (!this.medicDocument) {

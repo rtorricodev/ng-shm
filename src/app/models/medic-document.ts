@@ -13,8 +13,6 @@ export class MedicDocument {
     url: string;
     progress: number;
 
-
-    // TODO: add file as a parameter in the constructor
     constructor(file: File) {
         this.title = '';
         this.description = '';

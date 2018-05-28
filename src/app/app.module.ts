@@ -26,8 +26,17 @@ import { MedicDocumentViewComponent } from './crud components/medic-document/med
 import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
 import { MedicDocumentEditComponent } from './crud components/medic-document/medic-document-edit/medic-document-edit.component';
 
+// crud reminder
+import { ReminderAddComponent } from './crud components/reminder/reminder-add/reminder-add.component';
+import { ReminderEditComponent } from './crud components/reminder/reminder-edit/reminder-edit.component';
+import { ReminderFormComponent } from './crud components/reminder/reminder-form/reminder-form.component';
+import { ReminderListComponent } from './crud components/reminder/reminder-list/reminder-list.component';
+import { ReminderViewComponent } from './crud components/reminder/reminder-view/reminder-view.component';
+
 // crud components services
 import { medicDocumentService } from './services/medic.document.service';
+import { ReminderService } from './services/reminder.service';
+
 
 // services
 import { AuthService } from './services/auth.service';
@@ -37,6 +46,8 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
 
 
 @NgModule({
@@ -49,12 +60,18 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     // pagecomponents
     RegisterPageComponent,
     HomePageComponent,
-    // crud
+    // crud medic documents
     MedicDocumentListComponent,
     MedicDocumentFormComponent,
     MedicDocumentAddComponent,
     MedicDocumentViewComponent,
-    MedicDocumentEditComponent
+    MedicDocumentEditComponent,
+    // crud reminder
+    ReminderAddComponent,
+    ReminderEditComponent,
+    ReminderListComponent,
+    ReminderFormComponent,
+    ReminderViewComponent
   ],
 
   imports: [
@@ -76,7 +93,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
   providers: [
     AuthService,
-    medicDocumentService
+    medicDocumentService,
+    ReminderService
   ],
   bootstrap: [AppComponent]
 })

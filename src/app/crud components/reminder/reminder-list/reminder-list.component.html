@@ -1,0 +1,10 @@
+<div *ngFor="let reminder of reminders | async">
+  <div [routerLink]="['/reminders/view/']" >
+    <p class="normal-text title">{{reminder.title}}</p>
+    <p class="normal-text title">{{reminder.date}}</p>
+  </div>
+</div>
+
+
+
+<button routerLink="/reminders/add" >add</button>
