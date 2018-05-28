@@ -7,12 +7,13 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 //Model
-import { MedicDocument } from './../models/medic-document';
+import { MedicDocument} from './../models/medic-document';
 
 //firebase
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebaseConfig from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Injectable()
 export class medicDocumentService {
@@ -21,7 +22,43 @@ export class medicDocumentService {
     constructor(private db: AngularFireDatabase, private router: Router,private  autenticationFire: AngularFireAuth){
         this.itemsRef = this.db.list('medicDocuments');
     }
-    
+
+    pushUpload(medicDocument: MedicDocument){
+        const storageRef = firebaseConfig.storage().ref();
+        const uploadTask = storageRef.child('/medicDocuments' + '/' + medicDocument.file.name).put(medicDocument.file);
+        uploadTask.on(firebaseConfig.storage.TaskEvent.STATE_CHANGED,
+            (snapshot) => {
+                medicDocument.progress = Math.round((uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100);
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                medicDocument.url = uploadTask.snapshot.downloadURL;
+                medicDocument.photoName = medicDocument.file.name;
+                // medicDocument.progress = 0;
+                // this.createMedicDocument(medicDocument);
+            }
+        )
+    }
+
+    deleteUpload(medicDocument: MedicDocument) {
+        this.deleteFileData(medicDocument.$key)
+        .then( () =>{
+            this.deleteFileStorage(medicDocument.photoName)
+        })
+        .catch(error => console.log(error))
+    }
+
+    private deleteFileData(key: string) {
+        return this.db.list('/medicDocuments').remove(key);
+    }
+
+    private deleteFileStorage(name: string) {
+        let storageRef = firebaseConfig.storage().ref();
+        storageRef.child('/medicDocuments' + '/' + MedicDocument.name).delete();
+    }
+     
     getMedicDocuments(): Observable<any[]> {
         let medicDocuments =[];
         const ref = firebaseConfig.database().ref('medicDocuments');

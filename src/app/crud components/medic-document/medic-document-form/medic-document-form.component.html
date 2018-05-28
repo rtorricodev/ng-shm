@@ -72,12 +72,21 @@
   
   </div>
 
-  <div class="space"></div>
+  <label>
+    <input type="file" (change)='detectFiles($event)'>
+  </label>
 
+
+  Progress: {{medicDocument?.photoName}} | {{medicDocument?.progress}}% Complete 
+
+  <div class="space"></div>
 
   <div>
     <button  [ngClass]="{'disabled-sve-button ': title.invalid || category.invalid}"
-    [disabled]="title.invalid || category.invalid" (click)="save()"
-    class="save-button">Guardar docuemento</button>
+             [disabled]="title.invalid || category.invalid" 
+             (click)="save()"
+             class="save-button">
+             Guardar docuemento
+            </button>
   </div>
 </div>

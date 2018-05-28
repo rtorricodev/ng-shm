@@ -18,12 +18,15 @@
     <span class="normal-text">{{medicDocument?.description}}</span>
   </div>
 
-
-
   <div>
     <label class="label">Categoria:</label>
     <span class="normal-text">{{medicDocument?.category}}</span>
   </div>
+
+  <div>
+    <img src="{{medicDocument?.url}}" alt="">
+  </div>
+
 
   <div>
       <button (click)="edit()"
