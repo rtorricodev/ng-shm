@@ -73,7 +73,12 @@ export class medicDocumentService {
             const ref = firebaseConfig.database().ref('medicDocuments'); 
                 ref.orderByChild("category").equalTo(requiredCategory).on ("child_added",function(snapshot) {
                     if(user.uid === snapshot.val().uid){
-                        medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+                        medicDocuments.push({key: snapshot.key, ... snapshot.val()});
+                        medicDocuments.sort(function(a,b){
+                            a = new Date (a['date']); 
+                            b = new Date (b['date']);
+                            return  b - a ;
+                         });
                     }
             });
         });
@@ -89,11 +94,13 @@ export class medicDocumentService {
                 const myTitle =  snapshot.child('title').val();
                 const myTitleString = String(myTitle);
                 answer = myTitleString.search(String(name));
-                console.log(name);
-                console.log(myTitle);
-                console.log(answer);
                 if(answer >= 0) {
-                    medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+                    medicDocuments.push({key: snapshot.key, ... snapshot.val()});
+                    medicDocuments.sort(function(a,b){
+                        a = new Date (a['date']); 
+                        b = new Date (b['date']);
+                        return  b - a ;
+                     });
                 }
             });
         })
@@ -111,9 +118,7 @@ export class medicDocumentService {
                  medicDocuments.sort(function(a,b){
                     a = new Date (a['date']); 
                     b = new Date (b['date']);
-
-
-                    return  a - b ;
+                    return  b - a ;
                  });
             });
         });
@@ -124,7 +129,8 @@ export class medicDocumentService {
     createMedicDocument(medicDocument: MedicDocument){
         this.autenticationFire.authState.subscribe(user =>{
             medicDocument.uid = user.uid;
-            this.itemsRef.push(medicDocument)}
+            this.itemsRef.push(medicDocument);
+            }
         );
         this.router.navigate(['/home']);
     }

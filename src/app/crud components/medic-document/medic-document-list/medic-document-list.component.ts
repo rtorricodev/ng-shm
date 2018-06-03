@@ -23,7 +23,7 @@ export class MedicDocumentListComponent implements OnInit {
   }
 
   getAllElements() {
-    this.medicDocuments = this.medicDocumentService.getMedicDocuments();
+    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate();
   }
 
   filterBy(category: string) {
