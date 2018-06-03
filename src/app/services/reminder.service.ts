@@ -34,15 +34,6 @@ export class ReminderService {
         });
     
         return Observable.of(reminders);
-
-
-        // return  this.itemsRef.snapshotChanges().map(value => {
-        //     return value.map (
-        //         val => ({ 
-        //             key: val.payload.key, 
-        //             ... val.payload.val() 
-        //         }));
-        // });
     }
 
 
