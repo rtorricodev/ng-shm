@@ -36,6 +36,10 @@ export class MedicDocumentListComponent implements OnInit {
     }
   }
 
+  orderByDate(){
+    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate();
+  }
+
   delete(key: string) {
     this.medicDocumentService.deleteMedicDocument(key);
   }

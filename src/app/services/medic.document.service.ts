@@ -13,6 +13,7 @@ import { MedicDocument} from './../models/medic-document';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebaseConfig from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
@@ -99,6 +100,27 @@ export class medicDocumentService {
         return Observable.of(medicDocuments);
     }
 
+    
+
+    getMedicDocumentOrderedByDate(){
+        let medicDocuments =[];
+        const ref = firebaseConfig.database().ref('medicDocuments');
+        let uid = this.autenticationFire.authState.subscribe(user => {
+            ref.orderByChild("uid").equalTo(user.uid).on("child_added", function(snapshot) {
+                 medicDocuments.push({key: snapshot.key, ... snapshot.val()});
+                 medicDocuments.sort(function(a,b){
+                    a = new Date (a['date']); 
+                    b = new Date (b['date']);
+
+
+                    return  a - b ;
+                 });
+            });
+        });
+        
+        return Observable.of(medicDocuments);
+    }
+
     createMedicDocument(medicDocument: MedicDocument){
         this.autenticationFire.authState.subscribe(user =>{
             medicDocument.uid = user.uid;
@@ -122,4 +144,6 @@ export class medicDocumentService {
         this.itemsRef.update(key,medicDocument);
         this.router.navigate(['/home']);
     }
+
+
 }
