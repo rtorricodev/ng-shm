@@ -1,3 +1,5 @@
+
+
 <div  class="medic-document-container">
   <div class="space"></div>
   <div *ngFor="let medicDocument of medicDocuments | async">
@@ -18,4 +20,13 @@
     <button class="secondary-button" (click)="filterBy('Otro')">#Otro</button>
     <button class="secondary-button" (click)="getAllElements()">#Todo</button>
 </div>
+
+
+<input
+  [(ngModel)]="wordText"
+  #word2='ngModel' 
+>
+
+
+<button (click)="filterByName(wordText)">Search</button>
 

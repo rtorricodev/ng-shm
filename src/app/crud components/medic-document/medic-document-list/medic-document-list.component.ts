@@ -13,10 +13,12 @@ import { MedicDocument } from './../../../models/medic-document';
 export class MedicDocumentListComponent implements OnInit {
 
   medicDocuments: Observable<MedicDocument[]>;
+  word: string;
 
   constructor(private medicDocumentService: medicDocumentService) { }
 
   ngOnInit() {
+    this.word = 'casa';
     this.getAllElements();
   }
 
@@ -26,6 +28,12 @@ export class MedicDocumentListComponent implements OnInit {
 
   filterBy(category: string) {
     this.medicDocuments = this.medicDocumentService.getMedicDocumentsFilterBy(category);
+  }
+
+  filterByName(name: string) {
+    if(name != undefined){
+      this.medicDocuments = this.medicDocumentService.getMedicDocumentFilterByName(name);
+    }
   }
 
   delete(key: string) {
