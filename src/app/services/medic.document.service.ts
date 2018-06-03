@@ -41,7 +41,7 @@ export class medicDocumentService {
     }
 
     deleteUpload(medicDocument: MedicDocument) {
-        this.deleteFileData(medicDocument.$key)//
+        this.deleteFileData(medicDocument.$key)
         .then( () =>{
             this.deleteFileStorage(medicDocument.photoName)
         })
@@ -87,7 +87,7 @@ export class medicDocumentService {
                 let answer;
                 const myTitle =  snapshot.child('title').val();
                 const myTitleString = String(myTitle);
-                answer = myTitleString.search(String(name);
+                answer = myTitleString.search(String(name));
                 console.log(name);
                 console.log(myTitle);
                 console.log(answer);
