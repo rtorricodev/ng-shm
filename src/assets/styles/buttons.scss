@@ -29,13 +29,17 @@
     width: 3.4em;
     height: 3.4em;
     border-radius: 50%;
-    font-size: 15px;
     cursor: pointer;
     position: fixed;
     border: none;
     background: #0a88f1;
     color: white;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.16);
+
+    span {
+        font-size: 22px;
+        font-weight: 400px;
+    }
 }
 
 .secondary-button {
