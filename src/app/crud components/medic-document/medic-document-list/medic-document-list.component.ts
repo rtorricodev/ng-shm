@@ -14,6 +14,8 @@ export class MedicDocumentListComponent implements OnInit {
 
   medicDocuments: Observable<MedicDocument[]>;
   word: string;
+  wordText: any;
+
 
   constructor(private medicDocumentService: medicDocumentService) { }
 
@@ -23,7 +25,7 @@ export class MedicDocumentListComponent implements OnInit {
   }
 
   getAllElements() {
-    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate();
+    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate('asc');
   }
 
   filterBy(category: string) {
@@ -36,8 +38,8 @@ export class MedicDocumentListComponent implements OnInit {
     }
   }
 
-  orderByDate(){
-    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate();
+  orderByDate(order: string){
+    this.medicDocuments = this.medicDocumentService.getMedicDocumentOrderedByDate(order);
   }
 
   delete(key: string) {

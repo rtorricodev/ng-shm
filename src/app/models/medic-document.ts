@@ -24,5 +24,6 @@ export class MedicDocument {
         this.photoName = '';
         this.fileFolderKey = '';
         this.progress = 0;
+    
     }
 }

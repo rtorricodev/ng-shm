@@ -27,7 +27,7 @@ export class DisplayUserComponent implements OnInit {
     this.userInfo = this.authService.currentUser();
   }
 
-  navigateToReminders(event) {
+  navigateToReminders() {
     this.router.navigate(['/reminders']);
   }
 

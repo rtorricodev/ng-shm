@@ -109,16 +109,21 @@ export class medicDocumentService {
 
     
 
-    getMedicDocumentOrderedByDate(){
+    getMedicDocumentOrderedByDate(order:string){
         let medicDocuments =[];
         const ref = firebaseConfig.database().ref('medicDocuments');
         let uid = this.autenticationFire.authState.subscribe(user => {
             ref.orderByChild("uid").equalTo(user.uid).on("child_added", function(snapshot) {
                  medicDocuments.push({key: snapshot.key, ... snapshot.val()});
                  medicDocuments.sort(function(a,b){
+                   
                     a = new Date (a['date']); 
                     b = new Date (b['date']);
-                    return  b - a ;
+                    if(order === 'asc'){
+                        return  b - a ;
+                    }else {
+                        return  a - b ;
+                    }
                  });
             });
         });
