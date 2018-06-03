@@ -36,14 +36,12 @@ export class medicDocumentService {
             () => {
                 medicDocument.url = uploadTask.snapshot.downloadURL;
                 medicDocument.photoName = medicDocument.file.name;
-                // medicDocument.progress = 0;
-                // this.createMedicDocument(medicDocument);
             }
         )
     }
 
     deleteUpload(medicDocument: MedicDocument) {
-        this.deleteFileData(medicDocument.$key)
+        this.deleteFileData(medicDocument.$key)//
         .then( () =>{
             this.deleteFileStorage(medicDocument.photoName)
         })

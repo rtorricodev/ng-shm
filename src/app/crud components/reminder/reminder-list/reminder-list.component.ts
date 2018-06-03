@@ -23,4 +23,8 @@ export class ReminderListComponent implements OnInit {
     this. reminders = this.reminderService.getReminders();
   }
 
+  deleteItem(key: string) {
+    this.reminderService.deleteReminder(key);
+  }
+
 }

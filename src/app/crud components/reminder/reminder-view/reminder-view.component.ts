@@ -12,7 +12,10 @@ export class ReminderViewComponent implements OnInit {
 
   reminder: Reminder = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private reminderService: ReminderService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router, 
+              private reminderService: ReminderService
+            ) { }
 
   ngOnInit() {
     this.getReminder(this.route.snapshot.params['id']);
@@ -22,13 +25,4 @@ export class ReminderViewComponent implements OnInit {
     return this.reminderService.getReminder(key)
     .then(reminder => this.reminder = reminder);
   }
-
-  delete() {
-    this.reminderService.deleteReminder(this.route.snapshot.params['id']);
-  }
-
-  edit() {
-    this.router.navigate(['/reminders/edit/' + this.route.snapshot.params['id']]);
-  }
-
 }

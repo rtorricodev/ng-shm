@@ -1,9 +1,24 @@
 <div>
-  {{reminder?.title}}
-</div>
-
-<div>
-  <button (click)="delete()" routerLink="/reminders">Eliminar</button>
+  <div>
+    <label>Doctor:</label>
+    <p>{{reminder?.doctor}}</p>
+  </div>
+  <div>
+      <label>Campo Médico:</label>
+      <p>{{reminder?.medicSection}}</p>
+  </div>
+  <div>
+      <label>Hora:</label>
+      <p>{{reminder?.time}}</p>
+  </div>
+  <div>
+      <label>Fecha:</label>
+      <p>{{reminder?.date}}</p>
+  </div>
+  <div>
+      <label>Descripción:</label>
+      <p>{{reminder?.description}}</p>
+  </div>
 </div>
 
 <div>

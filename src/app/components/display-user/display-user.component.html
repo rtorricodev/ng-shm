@@ -1,10 +1,12 @@
 <div class="display-user-container">
     <div class="header">
         <div class=navbar>
-            <div (click)="logout()" class="logout-container">
+            <div (click)="logout()"
+                  class="logout-container">
                 <span class="icon-log-out"></span>
             </div>
-            <div class="clock-container">
+            <div (click)="navigateToReminders()" 
+                 class="clock-container">
                 <span class="icon-clock"></span>
             </div>
             <div class="search-container">

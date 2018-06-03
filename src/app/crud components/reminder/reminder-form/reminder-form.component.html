@@ -1,9 +1,59 @@
-<input [(ngModel)] = 'reminder.title'
+<div>
+        <label>Nombre del doctor</label>
+</div>
+<input [(ngModel)] = 'reminder.doctor'
         #titile = 'ngModel'
-        name = 'title'
-        type = 'text'   
-        placeholder = 'título'>
+        name = 'doctor'
+        type = ''   
+        placeholder = 'Nombre del doctor'
+        maxlength="50">
+
+<div>
+        <label>Hora de la consulta</label>
+</div>
+
+<input [(ngModel)] = 'reminder.time'
+        id = "time"
+        #time = 'ngModel'
+        name = 'time'
+        type = "time">
+
+<div>
+        <label>La fecha de la consulta</label>
+</div>
+
+<input [(ngModel)] = 'reminder.date'
+        #date = 'ngModel'
+        name = 'date'
+        type = "date">
 
 
 
-<button (click)="save()">Guardar</button>
+<div>
+        <label>Campo médico</label>
+</div>
+
+<input [(ngModel)] = 'reminder.medicSection'
+        #medicSection = 'ngModel'
+        name = 'medicSection'
+        maxlength="50"
+        placeholder="Campo médico">
+
+<div>
+        <label>Descripción</label>
+</div>
+        
+<textarea [(ngModel)] = 'reminder.description'
+        #descriptio = 'ngModel'
+        name = 'description'
+        maxlength="100" 
+        type="text"
+        placeholder="Descripción">
+</textarea>
+
+
+
+        
+<div>
+        <button (click)="save()">Guardar</button>
+</div>

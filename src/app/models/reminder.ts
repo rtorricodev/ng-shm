@@ -1,13 +1,20 @@
+
 export class Reminder{
-    title: string;
+    doctor: string;
     date: Date;
+    time: string;
+    medicSection: string;
     description: string;
     uid: any;
 
     constructor(){
-        this.title = '';
-        this.date = new Date();
+        this.doctor = '';
+        this.medicSection = '';
         this.description = '';
+
+        this.time = '';
+        this.date = new Date();
+     
         this.uid = '';
     }
 }

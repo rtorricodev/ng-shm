@@ -1,8 +1,12 @@
 <div *ngFor="let reminder of reminders | async">
-  <div [routerLink]="['/reminders/view/']" >
-    <p class="normal-text title">{{reminder.title}}</p>
-    <p class="normal-text title">{{reminder.date}}</p>
-  </div>
+  
+    <span class="normal-text title">Visitar {{reminder.medicSection}}</span>
+    <span class="normal-text title">el día {{reminder.date}} a las</span>
+    <span class="normal-text title">{{reminder.time}}</span>
+    <button [routerLink]="['/reminders/view/' + reminder.key]">Ver</button>
+    <button [routerLink]="['/reminders/edit/' + reminder.key]">Editar</button>
+    <button (click)="deleteItem(reminder.key)">Borrar</button>
+
 </div>
 
 

@@ -24,19 +24,25 @@ export class ReminderService {
     }
 
     getReminders(): Observable<any[]> {
-        // let reminders =[];
-        // const ref = firebaseConfig.database().ref('reminders');
-        // ref.orderByChild("uid").equalTo(this.autenticationFire.auth.currentUser.uid).on("child_added", function(snapshot) {
-        //     reminders.push({key: snapshot.key, ... snapshot.val()})
-        // });
-        // return Observable.of(reminders);
-        return  this.itemsRef.snapshotChanges().map(value => {
-            return value.map (
-                val => ({ 
-                    key: val.payload.key, 
-                    ... val.payload.val() 
-                }));
+        let reminders =[];
+        
+        const ref = firebaseConfig.database().ref('reminders');
+        this.autenticationFire.authState.subscribe(user =>{
+            ref.orderByChild("uid").equalTo(user.uid).on("child_added", function(snapshot) {
+                reminders.push({key: snapshot.key, ... snapshot.val()})
+            });
         });
+    
+        return Observable.of(reminders);
+
+
+        // return  this.itemsRef.snapshotChanges().map(value => {
+        //     return value.map (
+        //         val => ({ 
+        //             key: val.payload.key, 
+        //             ... val.payload.val() 
+        //         }));
+        // });
     }
 
 
