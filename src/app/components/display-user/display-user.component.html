@@ -20,9 +20,11 @@
                     {{user.email}} 
                 </p>
             </div>
-            <div class="photo-container">
-    
-            </div>
+                <div class="photo-container" *ngIf="userInfo | async as user" [ngStyle]="{'background-image':'url(' + user.photoURL + ')'}">
+                        
+                </div>
+                
+        
         </div>
     </div>
 

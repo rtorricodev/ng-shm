@@ -76,8 +76,8 @@
     position: absolute;
     left: 42.5%;
     bottom: -30%;
-    background-image: url("../../../assets/images/basic-profile-picture.png");
-    background-size: 100% 90%;
+    // background-image: url("../../../assets/images/basic-profile-picture.png");
+    background-size: cover;
     box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
 
     @media(max-width: 900px) {
