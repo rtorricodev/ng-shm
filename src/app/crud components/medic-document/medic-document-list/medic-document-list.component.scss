@@ -11,8 +11,8 @@
 
 .medic-document {
     margin: 3em;
-    width: 600px;
-    height: 7em;
+    width: 450px;
+    height: 3em;
     margin: 1em;
     position: relative;
     cursor: pointer;
@@ -27,22 +27,21 @@
 .title{
     top: 1em;
     left: 2em;
-    width: 400px;
-    height: 3.5em;
+    width: 200px;
+    height: 3em;
     font-weight: 600px;
     position: absolute;
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden; 
-
     @media (max-width:900px) {
         width: 180px;
     }
 }
 
 .date {
-    bottom: 0.5em;
-    left: 1em;
+    top: 1em;
+    right: 10em;
     width: 120px;
     height: 1em;
     font-size: 14px;
