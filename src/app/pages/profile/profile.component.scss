@@ -1,0 +1,91 @@
+.header {
+    width: 100vw;
+    height: 194px;
+}
+
+.navbar{
+    width: 110%;
+    height: 3em;
+    z-index: 1;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.logout-container {
+    width: 30px;
+    height: 30px;
+    top: 0.8em;
+    left: 2em;
+    position: absolute;
+}
+
+.clock-container{
+    width: 30px;
+    height: 30px;
+    top: 0.8em;
+    left: 5em;
+    position: absolute;
+}
+
+.search-container{
+    width: 30px;
+    height: 30px;
+    top: 0.8em;
+    right: 7.5em;
+    position: absolute;
+}
+
+
+.profile-background{
+    width: 110%;
+    height: 194px;
+    top: 0;
+    position: absolute;
+    background-image: linear-gradient(to bottom, #06c8f2, #0a88f1);
+}
+
+.display-user-container {
+    text-align: center;
+}
+
+.name-container{
+    width: 50%;
+    height: 2em;
+    margin-top: 5em;
+    left: 21.7%;
+    position: absolute;
+    display: inline-block;
+
+    @media(max-width: 1100px) {
+        left: 22%;
+    }
+
+    @media(max-width: 800px) {
+        left: 23%;
+    }
+    
+    @media(max-width: 600px) {
+        left: 25%;
+    }
+}
+
+.photo-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    left: 42.5%;
+    bottom: -30%;
+    // background-image: url("../../../assets/images/basic-profile-picture.png");
+    background-size: cover;
+    box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.16);
+
+    @media(max-width: 900px) {
+        left: 41%;
+    }
+
+    @media(max-width: 500px) {
+        left: 36.5%;
+    }
+}
+

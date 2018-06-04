@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 // pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 // crud components medic documents
 import { MedicDocumentAddComponent } from './crud components/medic-document/medic-document-add/medic-document-add.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'register', component: RegisterPageComponent },
   {path: 'home', component: HomePageComponent},
+  {path: 'profile', component:ProfileComponent},
   // crud components
   {path: 'add', component: MedicDocumentAddComponent},
   {path: 'view/:id', component: MedicDocumentViewComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path: 'reminders/add', component: ReminderAddComponent},
   {path: 'reminders/view/:id', component: ReminderViewComponent},
   {path: 'reminders/edit/:id', component: ReminderEditComponent}
+  
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

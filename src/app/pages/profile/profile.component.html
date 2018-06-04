@@ -1,0 +1,45 @@
+<div class="header">
+    <div class=navbar>
+        <a [routerLink]="['/home']">Home</a>
+    </div>
+    <div class="profile-background">
+        <div class="name-container">
+            <p *ngIf="userInfo | async as user" class="standard-text "> 
+                {{user.email}} 
+            </p>
+        </div>
+        <div class="photo-container" *ngIf="userInfo | async as user" [ngStyle]="{'background-image':'url(' + user.photoURL + ')'}">
+        </div>
+    
+    </div>
+</div>
+
+
+<div *ngFor="let UserMedicInfo of UserMedicInfoList | async">
+    <div>
+        <label>Edad: </label>
+        <input type="text" #updateage [value]="UserMedicInfo?.age" />
+    </div>
+    <div>
+        <label>Peso: </label>
+        <input type="text" #updateweigth [value]="UserMedicInfo?.weight" />
+    </div>
+    <div>
+        <label>Altura: </label>
+        <input type="number"
+         #updateheight [value]="UserMedicInfo.height" />
+    </div>
+    <div>
+        <label>Tipo de sangre: </label>
+        <input type="text" #updateblod [value]="UserMedicInfo?.blod" />
+    </div>
+
+
+
+    <button (click)="update(UserMedicInfo.key,updateage.value,updateweigth.value,updateheight.value,updateblod.value)">Actualizar</button>
+    <p *ngIf="actualizado">
+        Tus datos estan actualizados;
+    </p>
+
+    
+</div>

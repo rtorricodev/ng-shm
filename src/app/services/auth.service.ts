@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 
 // models
 import { UserInfo } from './../models/user.info';
+import { UserMedicInfo } from './../models/user.medic.info';
 
 // firebase
 import * as firebase from 'firebase/app';
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
@@ -14,6 +16,9 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import * as firebaseConfig from 'firebase';
+
 @Injectable()
 export class AuthService {
 
@@ -25,10 +30,14 @@ export class AuthService {
         uid: null
     };
 
+    itemsRef: AngularFireList<any>;
+ 
+
     userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
     private user: firebase.User;
 
-    constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
+    constructor(private angularFireAuth: AngularFireAuth, private router: Router, private db: AngularFireDatabase) {
+        this.itemsRef = this.db.list('UserMedicInfo');
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
@@ -111,4 +120,60 @@ export class AuthService {
         result.error('Not a supported authentication method: ' + provider);
         return result.asObservable();
     }
+
+    createBasicInfo(UserMedicInfo: UserMedicInfo) {
+        let medicDocuments = [];
+        const ref = firebaseConfig.database().ref('UserMedicInfo');
+
+        this.angularFireAuth.authState.subscribe(user =>{
+            ref.orderByChild("uid").equalTo(this.angularFireAuth.auth.currentUser.uid).on("child_added", function(snapshot) {
+                medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+            });
+
+            if(medicDocuments.length === 0) {
+                UserMedicInfo.uid = user.uid;
+                this.itemsRef.push(UserMedicInfo);
+            } 
+        });
+    }
+
+    getBasicInfo(): Observable<any[]> {
+        let basicInfo = [];
+        const ref = firebaseConfig.database().ref('UserMedicInfo');
+        this.angularFireAuth.authState.subscribe(user =>{
+            ref.orderByChild("uid").equalTo(user.uid).on("child_added", function(snapshot) {
+                basicInfo.push({key: snapshot.key, ... snapshot.val()})
+            });
+        });
+        return Observable.of(basicInfo);
+    }
+
+    updateBasicInfo(key: string, age: number, weight: number, heigth: number, blod: string) {
+        let info = new UserMedicInfo();
+        this.angularFireAuth.authState.subscribe(user =>{
+            let myId = user.uid;
+            info.setUserMedicInfo(age,weight,heigth,blod,myId);
+            this.itemsRef.update(key,info);
+        });
+    
+    }
+
+    getBasicInfoOne(): UserMedicInfo{
+        let basicInfo = [];
+        const ref = firebaseConfig.database().ref('UserMedicInfo');
+        this.angularFireAuth.authState.subscribe(user =>{
+            ref.orderByChild("uid").equalTo(user.uid).on("child_added", function(snapshot) {
+                basicInfo.push({key: snapshot.key, ... snapshot.val()})
+            });
+        });
+        return basicInfo[0];
+    }
+
+
+
+
+
+
+
+
 }

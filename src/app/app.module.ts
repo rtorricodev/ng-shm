@@ -13,6 +13,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // page components
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 // components
 import { RegisterUserComponent } from './components/register-user/register-user.component';
@@ -50,6 +51,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
+
 @NgModule({
   declarations: [
     // components
@@ -60,6 +62,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     // pagecomponents
     RegisterPageComponent,
     HomePageComponent,
+    ProfileComponent,
     // crud medic documents
     MedicDocumentListComponent,
     MedicDocumentFormComponent,
@@ -71,7 +74,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     ReminderEditComponent,
     ReminderListComponent,
     ReminderFormComponent,
-    ReminderViewComponent
+    ReminderViewComponent,
   ],
 
   imports: [

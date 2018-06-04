@@ -18,11 +18,12 @@
                 <p *ngIf="userInfo | async as user" class="standard-text "> 
                     {{user.email}} 
                 </p>
+
+                <a [routerLink]="['/profile']" (click)="setUser()">VER PERFIL</a>
             </div>
-                <div class="photo-container" *ngIf="userInfo | async as user" [ngStyle]="{'background-image':'url(' + user.photoURL + ')'}">
-                        
-                </div>
-                
+            <div class="photo-container" *ngIf="userInfo | async as user" [ngStyle]="{'background-image':'url(' + user.photoURL + ')'}">
+                    
+            </div>
         
         </div>
     </div>

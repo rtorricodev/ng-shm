@@ -1,3 +1,4 @@
+import { UserMedicInfo } from './../../models/user.medic.info';
 import { Component, OnInit,  EventEmitter, Output } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { UserInfo } from './../../models/user.info';
@@ -33,5 +34,10 @@ export class DisplayUserComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe(() => this.onLoggedOut.emit("success"));
+  }
+  
+  setUser(){
+    let newInf = new UserMedicInfo();
+    this.authService.createBasicInfo(newInf);
   }
 }
