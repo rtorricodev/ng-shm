@@ -70,11 +70,16 @@
   
   </div>
 
-  <label>
-    <input type="file" (change)='detectFiles($event)'>
-  </label>
+  <div>
+    <label class="label">
+      <input type="file"
+      (change)='detectFiles($event)'>
+    </label>
+  </div>
 
+<span class="label">
   Progress: {{medicDocument?.photoName}} | {{medicDocument?.progress}}% Complete 
+</span>
 
   <div class="space"></div>
 
