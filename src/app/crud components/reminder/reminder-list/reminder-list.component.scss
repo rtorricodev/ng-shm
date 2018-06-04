@@ -29,10 +29,19 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
+@media(max-width:500px){
+    .reminder-container{
+        width: 400px;
+
+        span{
+            font-size: 10px;
+        }
+    }
+}
+
 .text-container{
     padding-top: 0.7em;
 }
-
 
 .back-container{
     position: absolute;

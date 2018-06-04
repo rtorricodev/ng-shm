@@ -16,32 +16,47 @@
     </div>
 </div>
 
+<div class="center">
 
-<div *ngFor="let UserMedicInfo of UserMedicInfoList | async">
+
+<div *ngFor="let UserMedicInfo of UserMedicInfoList | async"
+    style="margin-top:5em">
     <div>
-        <label>Edad: </label>
-        <input type="text" #updateage [value]="UserMedicInfo?.age" />
-    </div>
-    <div>
-        <label>Peso: </label>
-        <input type="text" #updateweigth [value]="UserMedicInfo?.weight" />
-    </div>
-    <div>
-        <label>Altura: </label>
+        <label class="label">Edad: </label>
         <input type="number"
-         #updateheight [value]="UserMedicInfo.height" />
+               max="110"
+               min="0" #updateage [value]="UserMedicInfo?.age"
+               class="form-title" />
     </div>
     <div>
-        <label>Tipo de sangre: </label>
-        <input type="text" #updateblod [value]="UserMedicInfo?.blod" />
+        <label class="label">Peso KG.: </label>
+        <input type="number" 
+        max="400"
+        min="0"
+        #updateweigth [value]="UserMedicInfo?.weight"
+        class="form-title" />
+    </div>
+    <div>
+        <label class="label">Altura en cent.: </label>
+        <input type="number"
+         max="400"
+         min="50"
+         #updateheight [value]="UserMedicInfo.height" 
+         class="form-title"/>
+    </div>
+    <div>
+        <label class="label">Tipo de sangre: </label>
+        <input type="text" #updateblod [value]="UserMedicInfo?.blod"
+        class="form-title" />
     </div>
 
 
 
-    <button (click)="update(UserMedicInfo.key,updateage.value,updateweigth.value,updateheight.value,updateblod.value)">Actualizar</button>
-    <p *ngIf="actualizado">
-        Tus datos estan actualizados;
-    </p>
+    <button 
+    class="save-button"
+    style="margin-top:2em"
+    (click)="update(UserMedicInfo.key,updateage.value,updateweigth.value,updateheight.value,updateblod.value)">Actualizar</button>
 
-    
+</div>
+
 </div>

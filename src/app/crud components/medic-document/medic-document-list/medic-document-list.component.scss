@@ -55,6 +55,12 @@
     position: absolute;
 }
 
+@media(max-width:700px) {
+    .date{
+        display: none;
+    }
+}
+
 .category {
     top: 1em;
     right: 1em;
