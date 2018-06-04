@@ -1,5 +1,8 @@
 <div class="view-container">
-  <div class="nav"></div>
+  <div class="nav">
+      <span [routerLink]="['/home']" class="icon-arrow-left2"
+      style="margin: 1em"></span>
+  </div>
 
   <div class="space"></div>
 
@@ -30,21 +33,13 @@
   <div>
       <button (click)="edit()"
       class="save-button">
-        Editar
+      <span class="icon-pencil"></span>
       </button>
-  </div>
-
-  <div>
     <button (click)="delete()" routerLink="/home"
       class="save-button">
-      Eliminar
+      <span class="icon-bin"></span>
     </button>
   </div>
 
-  <div>
-    <button routerLink="/home"
-      class="save-button"> Regresar
-    </button>
-  </div>
 
 </div>
