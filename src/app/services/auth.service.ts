@@ -127,13 +127,19 @@ export class AuthService {
 
         this.angularFireAuth.authState.subscribe(user =>{
             ref.orderByChild("uid").equalTo(this.angularFireAuth.auth.currentUser.uid).on("child_added", function(snapshot) {
-                medicDocuments.push({key: snapshot.key, ... snapshot.val()});
-                if(medicDocuments.length === 0) {
-                    UserMedicInfo.uid = user.uid;
-                    this.itemsRef.push(UserMedicInfo);
-                } 
+                medicDocuments.push({key: snapshot.key, ... snapshot.val()})
+                console.log(medicDocuments);
+                console.log(medicDocuments.length);
+                console.log(medicDocuments.length === 0);
             });
-      
+
+        
+         
+
+            if(medicDocuments.length === 0) {
+                UserMedicInfo.uid = user.uid;
+                this.itemsRef.push(UserMedicInfo);
+            } 
         });
     }
 
