@@ -1,3 +1,10 @@
+
+::-webkit-input-placeholder { 
+    color: #707070;
+    font-size: 12px;
+    padding-left: 1em;
+}
+
 .medic-document-container {
     display: flex;
     flex-wrap: wrap;
@@ -75,3 +82,55 @@
 
 }
 
+.search-container{
+    z-index: 999;
+    top: 0.5em;
+    right: 2em;
+    position: relative;
+    
+    position: absolute;
+    
+    input{
+        color: #0a88f1;
+        font-size: 12px;
+        padding: 0.5em;
+        border: none;
+        border-radius: 15px;
+
+        &:focus{
+            outline:0;
+        }
+    }
+
+    button{
+        width: 30px;
+        border: none;
+        background: none;
+        &:focus{
+            outline:0;
+        }
+    
+        span{
+            top: 5px;
+            right: 0;
+            position: absolute;
+        }
+    }
+}
+
+
+.button-container{
+    top: 14em;
+    right: 1em;
+    position: absolute;
+    
+    button{
+        background: 0;
+        border: 0;
+        cursor: pointer;
+
+        &:focus{
+            outline: 0;
+        }
+    }
+}

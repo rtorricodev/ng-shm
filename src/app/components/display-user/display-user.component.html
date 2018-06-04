@@ -9,17 +9,19 @@
                  class="clock-container">
                 <span class="icon-clock"></span>
             </div>
-            <div class="search-container">
-                <span class="icon-search"></span>
+
+            <div class="profile-container"
+                 [routerLink]="['/profile']" 
+                 (click)="setUser()">
+                <span class="icon-user"></span>
             </div>
+
         </div>
         <div class="profile-background">
             <div class="name-container">
                 <p *ngIf="userInfo | async as user" class="standard-text "> 
                     {{user.email}} 
                 </p>
-
-                <a [routerLink]="['/profile']" (click)="setUser()">VER PERFIL</a>
             </div>
             <div class="photo-container" *ngIf="userInfo | async as user" [ngStyle]="{'background-image':'url(' + user.photoURL + ')'}">
                     

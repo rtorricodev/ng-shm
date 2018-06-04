@@ -21,14 +21,19 @@
     <button class="secondary-button" (click)="getAllElements()">#Todo</button>
 </div>
 
+<div class="search-container">
+  <input
+    [(ngModel)]="wordText"
+    maxlength="50"
+    #word2='ngModel' 
+    placeholder="Buscar..."
+  >
+  <button (click)="filterByName(wordText)">  <span class="icon-search"></span></button>
+</div>
 
-<input
-  [(ngModel)]="wordText"
-  #word2='ngModel' 
->
-<button (click)="filterByName(wordText)">Search</button>
 
-<button (click)="(orderByDate('asc'))">Ascendenter</button>
-<button (click)="(orderByDate('des'))">Descendente</button>
-
+<div class="button-container">
+  <button (click)="(orderByDate('asc'))">🔼</button>
+  <button (click)="(orderByDate('des'))">🔽</button>
+</div>  
 
