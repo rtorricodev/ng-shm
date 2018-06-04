@@ -1,14 +1,36 @@
-<div *ngFor="let reminder of reminders | async">
-  
-    <span class="normal-text title">Visitar {{reminder.medicSection}}</span>
-    <span class="normal-text title">el día {{reminder.date}} a las</span>
-    <span class="normal-text title">{{reminder.time}}</span>
-    <button [routerLink]="['/reminders/view/' + reminder.key]">Ver</button>
-    <button [routerLink]="['/reminders/edit/' + reminder.key]">Editar</button>
-    <button (click)="deleteItem(reminder.key)">Borrar</button>
+<div class="nav">
+    <div class="back-container" [routerLink]="['/home']">
+        <span class="icon-arrow-left2"></span>
+    </div>
+
+    <div class="add-container" routerLink="/reminders/add">
+        <span class="icon-plus"></span>
+    </div>
 
 </div>
 
+<div class="container">
 
+    <p class="form-tex">Recordatorios de citas médicas</p>
+    <div *ngFor="let reminder of reminders | async">
 
-<button routerLink="/reminders/add" >add</button>
+        <div class="reminder-container">
+            <div class="text-container">
+                <span class="normal-text">Visitar <strong>{{reminder.medicSection}}</strong></span>
+                <span class="normal-text">el día <strong>{{reminder.date}}</strong> a las</span>
+                <span class="normal-text"><strong>{{reminder.time}}</strong></span>
+                <span [routerLink]="['/reminders/view/' + reminder.key]">
+                    <span class="icon-eye standart-icon left"></span>
+                </span>
+                <span [routerLink]="['/reminders/edit/' + reminder.key]">
+                    <span class="icon-pencil standart-icon"></span>
+                </span>
+                <span (click)="deleteItem(reminder.key)">
+                    <span class="icon-bin standart-icon"></span>
+                </span>
+            </div>
+        </div>
+      
+    
+    </div>
+</div>    

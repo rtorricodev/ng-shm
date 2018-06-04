@@ -47,3 +47,38 @@
   font-size: 20px;
   content: "\e986";
 }
+
+.icon-pencil:before {
+  content: "\e905";
+}
+
+.icon-eye:before {
+  content: "\e9ce";
+}
+
+.icon-bin:before {
+  content: "\e9ac";
+}
+
+.icon-arrow-left2:before {
+  content: "\ea40";
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.icon-plus:before {
+  content: "\ea0a";
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.standart-icon {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  cursor: pointer;
+  color: #007FF5;
+
+}

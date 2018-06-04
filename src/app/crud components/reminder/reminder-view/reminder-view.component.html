@@ -1,26 +1,30 @@
-<div>
-  <div>
-    <label>Doctor:</label>
-    <p>{{reminder?.doctor}}</p>
+<div class="nav">
+    <div class="back-container" [routerLink]="['/reminders']">
+        <span class="icon-arrow-left2"></span>
+    </div>
+</div>
+        
+
+<div class="center">
+  <div style="padding-top:2em">
+    <label class="form-tex">Doctor:</label>
+    <span class="normal-text title">{{reminder?.doctor}}</span>
   </div>
   <div>
-      <label>Campo Médico:</label>
-      <p>{{reminder?.medicSection}}</p>
+      <label class="form-tex">Campo Médico:</label>
+      <span class="normal-text title">{{reminder?.medicSection}}</span>
   </div>
   <div>
-      <label>Hora:</label>
-      <p>{{reminder?.time}}</p>
+      <label class="form-tex">Hora:</label>
+      <span class="normal-text title">{{reminder?.time}}</span>
   </div>
   <div>
-      <label>Fecha:</label>
-      <p>{{reminder?.date}}</p>
+      <label class="form-tex">Fecha:</label>
+      <span class="normal-text title">{{reminder?.date}}</span>
   </div>
   <div>
-      <label>Descripción:</label>
-      <p>{{reminder?.description}}</p>
+      <label class="form-tex">Descripción:</label>
+      <span class="normal-text title">{{reminder?.description}}</span>
   </div>
 </div>
 
-<div>
-  <button routerLink="/reminders"> Home</button>
-</div>

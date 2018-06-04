@@ -1,33 +1,37 @@
+
 <div>
-        <label>Nombre del doctor</label>
+        <label class="form-tex">Nombre del doctor</label>
 </div>
+
 <input [(ngModel)] = 'reminder.doctor'
         #titile = 'ngModel'
         name = 'doctor'
         type = ''   
+        class="form-title"
         placeholder = 'Nombre del doctor'
         maxlength="50">
 
 <div>
-        <label>Especialidad del Doctor</label>
+        <label class="form-tex">Especialidad del Doctor</label>
 </div>
 
 <input [(ngModel)] = 'reminder.medicSection'
         [ngClass]="{'primary-invalid-input': medicSection.invalid && medicSection.touched}"
         #medicSection = 'ngModel'
         name = 'medicSection'
+        class="form-title"
         maxlength="50"
         placeholder="Especialidad del Doctor"
         required>
 
 <p  *ngIf=" medicSection.hasError('required')"
-     class="information-text--blue" >
+        class="information-text--blue" >
         * La especilidad del doctor es un campo obligatorio
 </p>
-  
+        
 
 <div>
-        <label>Hora de la consulta</label>
+        <label class="form-tex">Hora de la consulta</label>
 </div>
 
 <input [(ngModel)] = 'reminder.time'
@@ -35,23 +39,25 @@
         id = "time"
         #time = 'ngModel'
         name = 'time'
+        class="form-title"
         required
         type = "time">
 
 <p  *ngIf=" time.hasError('required')"
-    class="information-text--blue" >
-        * La hora de la consulta es un campo obligaotrio
+        class="information-text--blue" >
+        * La hora de la consulta es un campo obligatorio
 </p>
 
 <div>
-        <label>La fecha de la consulta</label>
+        <label class="form-tex">La fecha de la consulta</label>
 </div>
 
 <input [(ngModel)] = 'reminder.date'
-        [ngClass]="{'primary-invalid-input': date.invalid && date.touched}"
+        [ngClass]="{'primary-invalid-input': date.invalid}"
         #date = 'ngModel'
         name = 'date'
         type = "date"
+        class="form-title"
         required>
 
 <p  *ngIf=" date.hasError('required')"
@@ -62,7 +68,7 @@
 
 
 <div>
-        <label>Descripción</label>
+        <label class="form-tex">Descripción</label>
 </div>
         
 <textarea [(ngModel)] = 'reminder.description'
@@ -70,6 +76,7 @@
         name = 'description'
         maxlength="100" 
         type="text"
+        class="area-form"
         placeholder="Descripción">
 </textarea>
 
@@ -77,9 +84,11 @@
 
         
 <div>
-        <button [ngClass]="{'disabled-sve-button ': medicSection.invalid || date.invalid || time.invalid}"
+        <button [ngClass]="{'disabled-save-button': medicSection.invalid || date.invalid || time.invalid}"
                 [disabled]="medicSection.invalid || date.invalid || time.invalid" 
+                class="save-button"
                 (click)="save()">
                 Guardar
         </button>
 </div>
+

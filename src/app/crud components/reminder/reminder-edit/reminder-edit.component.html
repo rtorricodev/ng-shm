@@ -1,3 +1,9 @@
-<div>
+<div class="nav">
+    <div class="back-container" [routerLink]="['/reminders']">
+      <span class="icon-arrow-left2"></span>
+  </div>
+</div>
+    
+<div class="center">
   <app-reminder-form [reminder]='reminder' (onSubmit)="save($event)"></app-reminder-form>
 </div>
